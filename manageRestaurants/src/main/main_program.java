@@ -1,0 +1,15 @@
+package main;
+
+import javax.swing.JFrame;
+
+import view.*;
+
+public class main_program {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		JFrame frame = new intro();
+		frame.setVisible(true);
+	}
+
+}

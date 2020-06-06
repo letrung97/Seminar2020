@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="view.intro"/>
+<fullyQualifiedTypeName name="javax.swing.JLabel"/>
+<fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+<fullyQualifiedTypeName name="bean.danhmuc"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="org.jdatepicker.impl.UtilDateModel"/>
+<fullyQualifiedTypeName name="org.jdatepicker.impl.JDatePanelImpl"/>
+<fullyQualifiedTypeName name="org.jdatepicker.impl.JDatePickerImpl"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="model.danh_sach_nha_hang"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="net.proteanit.sql.DbUtils"/>
+<fullyQualifiedTypeName name="model.main_info"/>
+<fullyQualifiedTypeName name="dao.tp_hcm_db"/>
+<fullyQualifiedTypeName name="dao.list_restaurant_db"/>
+<fullyQualifiedTypeName name="dao.place_order_db"/>
+<fullyQualifiedTypeName name="model.don_dat"/>
+<fullyQualifiedTypeName name="dao.detail_restaurants_db"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="model.danh_sach_thong_tin"/>
+<fullyQualifiedTypeName name="model.nhan_vien"/>
+<fullyQualifiedTypeName name="dao.employee_details_db"/>
+<fullyQualifiedTypeName name="dao.branch_details_db"/>
+</qualifiedTypeNameHistroy>

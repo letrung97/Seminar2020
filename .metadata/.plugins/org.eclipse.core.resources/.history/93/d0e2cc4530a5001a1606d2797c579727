@@ -1,0 +1,48 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import model.danh_sach_nha_hang;
+
+public class list_restaurant_db {
+	Connection conn;
+	PreparedStatement statement = null;
+	ResultSet result = null;
+	public list_restaurant_db() {
+		conn = DBconnect.connect();
+	}
+	public void insert(danh_sach_nha_hang user){
+		try {
+			String insertQuery = "insert into danh_sach_nha_hang"
+					+ "('ten_nha_hang, so_chi_nhanh,loai_nha_hang')"
+					+ " values('" + user.getTen_nha_hang()
+					+ "," + user.getSo_chi_nhanh()
+					+ "," + user.isLoai_nha_hang()
+					+ "')";
+		}
+	}
+	public void update(){
+		
+	}
+	public void delete(){
+		
+	}
+	public ResultSet get(){
+		try {
+			String query = select * from 
+		}
+		return result;
+	}
+	public void flushAll(){
+		try {
+			statement.close();
+			result.close();
+		} catch (SQLException ex) {
+			System.err.print(ex.toString() + " >> CLOSING DB");
+		}
+	}
+
+}

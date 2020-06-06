@@ -1,0 +1,9 @@
+package dao;
+
+public class list_restaurant_db {
+
+	public list_restaurant_db() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

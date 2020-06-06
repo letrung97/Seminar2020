@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="forms-1.3.0.jar" sourcepath="forms-1.3.0-src.zip"/>
+	<classpathentry exported="true" kind="lib" path="D:/[Seminar2020]/manageRestaurants/DateChooser.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/[Seminar2020]/manageRestaurants/jcalendar-1.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/[Seminar2020]/rs2xml.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/[Seminar2020]/mysql-connector-java-8.0.20.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

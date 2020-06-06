@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<addCategory
+		id="jdatepicker-1.3.4_1591408654819"
+		name="jdatepicker-1.3.4"
+		description="Container with import elements from D:/[Seminar2020]/manageRestaurants/jdatepicker-1.3.4.jar"
+		visible="true"
+		open="true"/>
+	<addComponent
+		id="org.jdatepicker.AbstractDateModel_1591408654819"
+		name="AbstractDateModel"
+		description="Custom component: org.jdatepicker.AbstractDateModel"
+		visible="true"
+		class="org.jdatepicker.AbstractDateModel"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.DateModel_1591408654819"
+		name="DateModel"
+		description="Custom component: org.jdatepicker.DateModel"
+		visible="true"
+		class="org.jdatepicker.DateModel"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.graphics.JNextIcon_1591408654819"
+		name="JNextIcon"
+		description="Custom component: org.jdatepicker.graphics.JNextIcon"
+		visible="true"
+		class="org.jdatepicker.graphics.JNextIcon"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.graphics.JPreviousIcon_1591408654819"
+		name="JPreviousIcon"
+		description="Custom component: org.jdatepicker.graphics.JPreviousIcon"
+		visible="true"
+		class="org.jdatepicker.graphics.JPreviousIcon"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.impl.DateComponentFormatter_1591408654819"
+		name="DateComponentFormatter"
+		description="Custom component: org.jdatepicker.impl.DateComponentFormatter"
+		visible="true"
+		class="org.jdatepicker.impl.DateComponentFormatter"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePanelImpl_1591408654819"
+		name="JDatePanelImpl"
+		description="Custom component: org.jdatepicker.impl.JDatePanelImpl"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePanelImpl"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePanelImpl$1_1591408654819"
+		name="1"
+		description="Custom component: org.jdatepicker.impl.JDatePanelImpl$1"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePanelImpl$1"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePanelImpl$InternalCalendarModel_1591408654819"
+		name="InternalCalendarModel"
+		description="Custom component: org.jdatepicker.impl.JDatePanelImpl$InternalCalendarModel"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePanelImpl$InternalCalendarModel"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePanelImpl$InternalController_1591408654819"
+		name="InternalController"
+		description="Custom component: org.jdatepicker.impl.JDatePanelImpl$InternalController"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePanelImpl$InternalController"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePanelImpl$InternalTableCellRenderer_1591408654819"
+		name="InternalTableCellRenderer"
+		description="Custom component: org.jdatepicker.impl.JDatePanelImpl$InternalTableCellRenderer"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePanelImpl$InternalTableCellRenderer"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePanelImpl$InternalView_1591408654819"
+		name="InternalView"
+		description="Custom component: org.jdatepicker.impl.JDatePanelImpl$InternalView"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePanelImpl$InternalView"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePickerImpl_1591408654819"
+		name="JDatePickerImpl"
+		description="Custom component: org.jdatepicker.impl.JDatePickerImpl"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePickerImpl"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePickerImpl$1_1591408654819"
+		name="1"
+		description="Custom component: org.jdatepicker.impl.JDatePickerImpl$1"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePickerImpl$1"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePickerImpl$InternalEventHandler_1591408654819"
+		name="InternalEventHandler"
+		description="Custom component: org.jdatepicker.impl.JDatePickerImpl$InternalEventHandler"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePickerImpl$InternalEventHandler"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.impl.SqlDateModel_1591408654819"
+		name="SqlDateModel"
+		description="Custom component: org.jdatepicker.impl.SqlDateModel"
+		visible="true"
+		class="org.jdatepicker.impl.SqlDateModel"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.impl.UtilCalendarModel_1591408654819"
+		name="UtilCalendarModel"
+		description="Custom component: org.jdatepicker.impl.UtilCalendarModel"
+		visible="true"
+		class="org.jdatepicker.impl.UtilCalendarModel"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.impl.UtilDateModel_1591408654819"
+		name="UtilDateModel"
+		description="Custom component: org.jdatepicker.impl.UtilDateModel"
+		visible="true"
+		class="org.jdatepicker.impl.UtilDateModel"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.JDateComponent_1591408654819"
+		name="JDateComponent"
+		description="Custom component: org.jdatepicker.JDateComponent"
+		visible="true"
+		class="org.jdatepicker.JDateComponent"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.JDateComponentFactory_1591408654820"
+		name="JDateComponentFactory"
+		description="Custom component: org.jdatepicker.JDateComponentFactory"
+		visible="true"
+		class="org.jdatepicker.JDateComponentFactory"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.JDatePanel_1591408654820"
+		name="JDatePanel"
+		description="Custom component: org.jdatepicker.JDatePanel"
+		visible="true"
+		class="org.jdatepicker.JDatePanel"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.JDatePicker_1591408654820"
+		name="JDatePicker"
+		description="Custom component: org.jdatepicker.JDatePicker"
+		visible="true"
+		class="org.jdatepicker.JDatePicker"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<addComponent
+		id="org.jdatepicker.util.JDatePickerUtil_1591408654820"
+		name="JDatePickerUtil"
+		description="Custom component: org.jdatepicker.util.JDatePickerUtil"
+		visible="true"
+		class="org.jdatepicker.util.JDatePickerUtil"
+		category="jdatepicker-1.3.4_1591408654819"/>
+	<visibleElement
+		id="jdatepicker-1.3.4_1591408654819"
+		visible="false"/>
+	<removeCategory
+		id="jdatepicker-1.3.4_1591408654819"/>
+	<addCategory
+		id="forms-1.3.0_1591408979986"
+		name="forms-1.3.0"
+		description="Container with import elements from D:\[Seminar2020]\manageRestaurants\forms-1.3.0.jar"
+		visible="true"
+		open="true"/>
+	<addComponent
+		id="com.jgoodies.forms.builder.AbstractButtonPanelBuilder_1591408979986"
+		name="AbstractButtonPanelBuilder"
+		description="Custom component: com.jgoodies.forms.builder.AbstractButtonPanelBuilder"
+		visible="true"
+		class="com.jgoodies.forms.builder.AbstractButtonPanelBuilder"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.builder.AbstractFormBuilder_1591408979986"
+		name="AbstractFormBuilder"
+		description="Custom component: com.jgoodies.forms.builder.AbstractFormBuilder"
+		visible="true"
+		class="com.jgoodies.forms.builder.AbstractFormBuilder"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.builder.AbstractI15dPanelBuilder_1591408979986"
+		name="AbstractI15dPanelBuilder"
+		description="Custom component: com.jgoodies.forms.builder.AbstractI15dPanelBuilder"
+		visible="true"
+		class="com.jgoodies.forms.builder.AbstractI15dPanelBuilder"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.builder.ButtonBarBuilder_1591408979986"
+		name="ButtonBarBuilder"
+		description="Custom component: com.jgoodies.forms.builder.ButtonBarBuilder"
+		visible="true"
+		class="com.jgoodies.forms.builder.ButtonBarBuilder"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.builder.ButtonBarBuilder2_1591408979986"
+		name="ButtonBarBuilder2"
+		description="Custom component: com.jgoodies.forms.builder.ButtonBarBuilder2"
+		visible="true"
+		class="com.jgoodies.forms.builder.ButtonBarBuilder2"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.builder.ButtonStackBuilder_1591408979986"
+		name="ButtonStackBuilder"
+		description="Custom component: com.jgoodies.forms.builder.ButtonStackBuilder"
+		visible="true"
+		class="com.jgoodies.forms.builder.ButtonStackBuilder"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.builder.DefaultFormBuilder_1591408979986"
+		name="DefaultFormBuilder"
+		description="Custom component: com.jgoodies.forms.builder.DefaultFormBuilder"
+		visible="true"
+		class="com.jgoodies.forms.builder.DefaultFormBuilder"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.builder.I15dPanelBuilder_1591408979986"
+		name="I15dPanelBuilder"
+		description="Custom component: com.jgoodies.forms.builder.I15dPanelBuilder"
+		visible="true"
+		class="com.jgoodies.forms.builder.I15dPanelBuilder"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.builder.PanelBuilder_1591408979986"
+		name="PanelBuilder"
+		description="Custom component: com.jgoodies.forms.builder.PanelBuilder"
+		visible="true"
+		class="com.jgoodies.forms.builder.PanelBuilder"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.debug.FormDebugPanel_1591408979986"
+		name="FormDebugPanel"
+		description="Custom component: com.jgoodies.forms.debug.FormDebugPanel"
+		visible="true"
+		class="com.jgoodies.forms.debug.FormDebugPanel"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.debug.FormDebugUtils_1591408979986"
+		name="FormDebugUtils"
+		description="Custom component: com.jgoodies.forms.debug.FormDebugUtils"
+		visible="true"
+		class="com.jgoodies.forms.debug.FormDebugUtils"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.Borders_1591408979986"
+		name="Borders"
+		description="Custom component: com.jgoodies.forms.factories.Borders"
+		visible="true"
+		class="com.jgoodies.forms.factories.Borders"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.Borders$1_1591408979986"
+		name="1"
+		description="Custom component: com.jgoodies.forms.factories.Borders$1"
+		visible="true"
+		class="com.jgoodies.forms.factories.Borders$1"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.Borders$EmptyBorder_1591408979986"
+		name="EmptyBorder"
+		description="Custom component: com.jgoodies.forms.factories.Borders$EmptyBorder"
+		visible="true"
+		class="com.jgoodies.forms.factories.Borders$EmptyBorder"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.ButtonBarFactory_1591408979986"
+		name="ButtonBarFactory"
+		description="Custom component: com.jgoodies.forms.factories.ButtonBarFactory"
+		visible="true"
+		class="com.jgoodies.forms.factories.ButtonBarFactory"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.ButtonBarFactory$1_1591408979986"
+		name="1"
+		description="Custom component: com.jgoodies.forms.factories.ButtonBarFactory$1"
+		visible="true"
+		class="com.jgoodies.forms.factories.ButtonBarFactory$1"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.ButtonBarFactory$MyButtonBarBuilder2_1591408979986"
+		name="MyButtonBarBuilder2"
+		description="Custom component: com.jgoodies.forms.factories.ButtonBarFactory$MyButtonBarBuilder2"
+		visible="true"
+		class="com.jgoodies.forms.factories.ButtonBarFactory$MyButtonBarBuilder2"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.CC_1591408979986"
+		name="CC"
+		description="Custom component: com.jgoodies.forms.factories.CC"
+		visible="true"
+		class="com.jgoodies.forms.factories.CC"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.ComponentFactory_1591408979986"
+		name="ComponentFactory"
+		description="Custom component: com.jgoodies.forms.factories.ComponentFactory"
+		visible="true"
+		class="com.jgoodies.forms.factories.ComponentFactory"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.ComponentFactory2_1591408979986"
+		name="ComponentFactory2"
+		description="Custom component: com.jgoodies.forms.factories.ComponentFactory2"
+		visible="true"
+		class="com.jgoodies.forms.factories.ComponentFactory2"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.DefaultComponentFactory_1591408979986"
+		name="DefaultComponentFactory"
+		description="Custom component: com.jgoodies.forms.factories.DefaultComponentFactory"
+		visible="true"
+		class="com.jgoodies.forms.factories.DefaultComponentFactory"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.DefaultComponentFactory$1_1591408979986"
+		name="1"
+		description="Custom component: com.jgoodies.forms.factories.DefaultComponentFactory$1"
+		visible="true"
+		class="com.jgoodies.forms.factories.DefaultComponentFactory$1"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.DefaultComponentFactory$FormsLabel_1591408979986"
+		name="FormsLabel"
+		description="Custom component: com.jgoodies.forms.factories.DefaultComponentFactory$FormsLabel"
+		visible="true"
+		class="com.jgoodies.forms.factories.DefaultComponentFactory$FormsLabel"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.DefaultComponentFactory$FormsLabel$AccessibleFormsLabel_1591408979986"
+		name="AccessibleFormsLabel"
+		description="Custom component: com.jgoodies.forms.factories.DefaultComponentFactory$FormsLabel$AccessibleFormsLabel"
+		visible="true"
+		class="com.jgoodies.forms.factories.DefaultComponentFactory$FormsLabel$AccessibleFormsLabel"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.DefaultComponentFactory$ReadOnlyLabel_1591408979986"
+		name="ReadOnlyLabel"
+		description="Custom component: com.jgoodies.forms.factories.DefaultComponentFactory$ReadOnlyLabel"
+		visible="true"
+		class="com.jgoodies.forms.factories.DefaultComponentFactory$ReadOnlyLabel"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.DefaultComponentFactory$TitledSeparatorLayout_1591408979986"
+		name="TitledSeparatorLayout"
+		description="Custom component: com.jgoodies.forms.factories.DefaultComponentFactory$TitledSeparatorLayout"
+		visible="true"
+		class="com.jgoodies.forms.factories.DefaultComponentFactory$TitledSeparatorLayout"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.DefaultComponentFactory$TitleLabel_1591408979986"
+		name="TitleLabel"
+		description="Custom component: com.jgoodies.forms.factories.DefaultComponentFactory$TitleLabel"
+		visible="true"
+		class="com.jgoodies.forms.factories.DefaultComponentFactory$TitleLabel"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.factories.FormFactory_1591408979986"
+		name="FormFactory"
+		description="Custom component: com.jgoodies.forms.factories.FormFactory"
+		visible="true"
+		class="com.jgoodies.forms.factories.FormFactory"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.BoundedSize_1591408979986"
+		name="BoundedSize"
+		description="Custom component: com.jgoodies.forms.layout.BoundedSize"
+		visible="true"
+		class="com.jgoodies.forms.layout.BoundedSize"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.CellConstraints_1591408979986"
+		name="CellConstraints"
+		description="Custom component: com.jgoodies.forms.layout.CellConstraints"
+		visible="true"
+		class="com.jgoodies.forms.layout.CellConstraints"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.CellConstraints$1_1591408979986"
+		name="1"
+		description="Custom component: com.jgoodies.forms.layout.CellConstraints$1"
+		visible="true"
+		class="com.jgoodies.forms.layout.CellConstraints$1"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.CellConstraints$Alignment_1591408979986"
+		name="Alignment"
+		description="Custom component: com.jgoodies.forms.layout.CellConstraints$Alignment"
+		visible="true"
+		class="com.jgoodies.forms.layout.CellConstraints$Alignment"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.ColumnSpec_1591408979986"
+		name="ColumnSpec"
+		description="Custom component: com.jgoodies.forms.layout.ColumnSpec"
+		visible="true"
+		class="com.jgoodies.forms.layout.ColumnSpec"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.ConstantSize_1591408979986"
+		name="ConstantSize"
+		description="Custom component: com.jgoodies.forms.layout.ConstantSize"
+		visible="true"
+		class="com.jgoodies.forms.layout.ConstantSize"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.ConstantSize$1_1591408979986"
+		name="1"
+		description="Custom component: com.jgoodies.forms.layout.ConstantSize$1"
+		visible="true"
+		class="com.jgoodies.forms.layout.ConstantSize$1"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.ConstantSize$Unit_1591408979986"
+		name="Unit"
+		description="Custom component: com.jgoodies.forms.layout.ConstantSize$Unit"
+		visible="true"
+		class="com.jgoodies.forms.layout.ConstantSize$Unit"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormLayout_1591408979986"
+		name="FormLayout"
+		description="Custom component: com.jgoodies.forms.layout.FormLayout"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormLayout"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormLayout$1_1591408979986"
+		name="1"
+		description="Custom component: com.jgoodies.forms.layout.FormLayout$1"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormLayout$1"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormLayout$CachingMeasure_1591408979986"
+		name="CachingMeasure"
+		description="Custom component: com.jgoodies.forms.layout.FormLayout$CachingMeasure"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormLayout$CachingMeasure"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormLayout$ComponentSizeCache_1591408979986"
+		name="ComponentSizeCache"
+		description="Custom component: com.jgoodies.forms.layout.FormLayout$ComponentSizeCache"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormLayout$ComponentSizeCache"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormLayout$LayoutInfo_1591408979986"
+		name="LayoutInfo"
+		description="Custom component: com.jgoodies.forms.layout.FormLayout$LayoutInfo"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormLayout$LayoutInfo"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormLayout$Measure_1591408979986"
+		name="Measure"
+		description="Custom component: com.jgoodies.forms.layout.FormLayout$Measure"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormLayout$Measure"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormLayout$MinimumHeightMeasure_1591408979986"
+		name="MinimumHeightMeasure"
+		description="Custom component: com.jgoodies.forms.layout.FormLayout$MinimumHeightMeasure"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormLayout$MinimumHeightMeasure"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormLayout$MinimumWidthMeasure_1591408979986"
+		name="MinimumWidthMeasure"
+		description="Custom component: com.jgoodies.forms.layout.FormLayout$MinimumWidthMeasure"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormLayout$MinimumWidthMeasure"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormLayout$PreferredHeightMeasure_1591408979986"
+		name="PreferredHeightMeasure"
+		description="Custom component: com.jgoodies.forms.layout.FormLayout$PreferredHeightMeasure"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormLayout$PreferredHeightMeasure"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormLayout$PreferredWidthMeasure_1591408979986"
+		name="PreferredWidthMeasure"
+		description="Custom component: com.jgoodies.forms.layout.FormLayout$PreferredWidthMeasure"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormLayout$PreferredWidthMeasure"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormSpec_1591408979986"
+		name="FormSpec"
+		description="Custom component: com.jgoodies.forms.layout.FormSpec"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormSpec"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormSpec$1_1591408979986"
+		name="1"
+		description="Custom component: com.jgoodies.forms.layout.FormSpec$1"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormSpec$1"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormSpec$DefaultAlignment_1591408979986"
+		name="DefaultAlignment"
+		description="Custom component: com.jgoodies.forms.layout.FormSpec$DefaultAlignment"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormSpec$DefaultAlignment"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormSpecParser_1591408979986"
+		name="FormSpecParser"
+		description="Custom component: com.jgoodies.forms.layout.FormSpecParser"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormSpecParser"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormSpecParser$FormLayoutParseException_1591408979986"
+		name="FormLayoutParseException"
+		description="Custom component: com.jgoodies.forms.layout.FormSpecParser$FormLayoutParseException"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormSpecParser$FormLayoutParseException"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.FormSpecParser$Multiplier_1591408979986"
+		name="Multiplier"
+		description="Custom component: com.jgoodies.forms.layout.FormSpecParser$Multiplier"
+		visible="true"
+		class="com.jgoodies.forms.layout.FormSpecParser$Multiplier"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.LayoutMap_1591408979986"
+		name="LayoutMap"
+		description="Custom component: com.jgoodies.forms.layout.LayoutMap"
+		visible="true"
+		class="com.jgoodies.forms.layout.LayoutMap"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.PrototypeSize_1591408979986"
+		name="PrototypeSize"
+		description="Custom component: com.jgoodies.forms.layout.PrototypeSize"
+		visible="true"
+		class="com.jgoodies.forms.layout.PrototypeSize"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.RowSpec_1591408979986"
+		name="RowSpec"
+		description="Custom component: com.jgoodies.forms.layout.RowSpec"
+		visible="true"
+		class="com.jgoodies.forms.layout.RowSpec"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.Size_1591408979986"
+		name="Size"
+		description="Custom component: com.jgoodies.forms.layout.Size"
+		visible="true"
+		class="com.jgoodies.forms.layout.Size"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.Sizes_1591408979986"
+		name="Sizes"
+		description="Custom component: com.jgoodies.forms.layout.Sizes"
+		visible="true"
+		class="com.jgoodies.forms.layout.Sizes"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.Sizes$1_1591408979987"
+		name="1"
+		description="Custom component: com.jgoodies.forms.layout.Sizes$1"
+		visible="true"
+		class="com.jgoodies.forms.layout.Sizes$1"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.layout.Sizes$ComponentSize_1591408979987"
+		name="ComponentSize"
+		description="Custom component: com.jgoodies.forms.layout.Sizes$ComponentSize"
+		visible="true"
+		class="com.jgoodies.forms.layout.Sizes$ComponentSize"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.util.AbstractUnitConverter_1591408979991"
+		name="AbstractUnitConverter"
+		description="Custom component: com.jgoodies.forms.util.AbstractUnitConverter"
+		visible="true"
+		class="com.jgoodies.forms.util.AbstractUnitConverter"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.util.DefaultUnitConverter_1591408979991"
+		name="DefaultUnitConverter"
+		description="Custom component: com.jgoodies.forms.util.DefaultUnitConverter"
+		visible="true"
+		class="com.jgoodies.forms.util.DefaultUnitConverter"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.util.DefaultUnitConverter$DialogBaseUnits_1591408979991"
+		name="DialogBaseUnits"
+		description="Custom component: com.jgoodies.forms.util.DefaultUnitConverter$DialogBaseUnits"
+		visible="true"
+		class="com.jgoodies.forms.util.DefaultUnitConverter$DialogBaseUnits"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.util.FormUtils_1591408979991"
+		name="FormUtils"
+		description="Custom component: com.jgoodies.forms.util.FormUtils"
+		visible="true"
+		class="com.jgoodies.forms.util.FormUtils"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.util.LayoutStyle_1591408979991"
+		name="LayoutStyle"
+		description="Custom component: com.jgoodies.forms.util.LayoutStyle"
+		visible="true"
+		class="com.jgoodies.forms.util.LayoutStyle"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.util.MacLayoutStyle_1591408979991"
+		name="MacLayoutStyle"
+		description="Custom component: com.jgoodies.forms.util.MacLayoutStyle"
+		visible="true"
+		class="com.jgoodies.forms.util.MacLayoutStyle"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.util.UnitConverter_1591408979991"
+		name="UnitConverter"
+		description="Custom component: com.jgoodies.forms.util.UnitConverter"
+		visible="true"
+		class="com.jgoodies.forms.util.UnitConverter"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.util.Utilities_1591408979991"
+		name="Utilities"
+		description="Custom component: com.jgoodies.forms.util.Utilities"
+		visible="true"
+		class="com.jgoodies.forms.util.Utilities"
+		category="forms-1.3.0_1591408979986"/>
+	<addComponent
+		id="com.jgoodies.forms.util.WindowsLayoutStyle_1591408979991"
+		name="WindowsLayoutStyle"
+		description="Custom component: com.jgoodies.forms.util.WindowsLayoutStyle"
+		visible="true"
+		class="com.jgoodies.forms.util.WindowsLayoutStyle"
+		category="forms-1.3.0_1591408979986"/>
+	<addCategory
+		id="jdatepicker-1.3.4_1591408992177"
+		name="jdatepicker-1.3.4"
+		description="Container with import elements from D:\[Seminar2020]\manageRestaurants\jdatepicker-1.3.4.jar"
+		visible="true"
+		open="true"/>
+	<addComponent
+		id="org.jdatepicker.AbstractDateModel_1591408992177"
+		name="AbstractDateModel"
+		description="Custom component: org.jdatepicker.AbstractDateModel"
+		visible="true"
+		class="org.jdatepicker.AbstractDateModel"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.DateModel_1591408992177"
+		name="DateModel"
+		description="Custom component: org.jdatepicker.DateModel"
+		visible="true"
+		class="org.jdatepicker.DateModel"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.graphics.JNextIcon_1591408992177"
+		name="JNextIcon"
+		description="Custom component: org.jdatepicker.graphics.JNextIcon"
+		visible="true"
+		class="org.jdatepicker.graphics.JNextIcon"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.graphics.JPreviousIcon_1591408992177"
+		name="JPreviousIcon"
+		description="Custom component: org.jdatepicker.graphics.JPreviousIcon"
+		visible="true"
+		class="org.jdatepicker.graphics.JPreviousIcon"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.impl.DateComponentFormatter_1591408992177"
+		name="DateComponentFormatter"
+		description="Custom component: org.jdatepicker.impl.DateComponentFormatter"
+		visible="true"
+		class="org.jdatepicker.impl.DateComponentFormatter"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePanelImpl_1591408992177"
+		name="JDatePanelImpl"
+		description="Custom component: org.jdatepicker.impl.JDatePanelImpl"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePanelImpl"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePanelImpl$1_1591408992177"
+		name="1"
+		description="Custom component: org.jdatepicker.impl.JDatePanelImpl$1"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePanelImpl$1"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePanelImpl$InternalCalendarModel_1591408992177"
+		name="InternalCalendarModel"
+		description="Custom component: org.jdatepicker.impl.JDatePanelImpl$InternalCalendarModel"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePanelImpl$InternalCalendarModel"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePanelImpl$InternalController_1591408992177"
+		name="InternalController"
+		description="Custom component: org.jdatepicker.impl.JDatePanelImpl$InternalController"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePanelImpl$InternalController"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePanelImpl$InternalTableCellRenderer_1591408992177"
+		name="InternalTableCellRenderer"
+		description="Custom component: org.jdatepicker.impl.JDatePanelImpl$InternalTableCellRenderer"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePanelImpl$InternalTableCellRenderer"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePanelImpl$InternalView_1591408992177"
+		name="InternalView"
+		description="Custom component: org.jdatepicker.impl.JDatePanelImpl$InternalView"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePanelImpl$InternalView"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePickerImpl_1591408992177"
+		name="JDatePickerImpl"
+		description="Custom component: org.jdatepicker.impl.JDatePickerImpl"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePickerImpl"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePickerImpl$1_1591408992177"
+		name="1"
+		description="Custom component: org.jdatepicker.impl.JDatePickerImpl$1"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePickerImpl$1"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.impl.JDatePickerImpl$InternalEventHandler_1591408992177"
+		name="InternalEventHandler"
+		description="Custom component: org.jdatepicker.impl.JDatePickerImpl$InternalEventHandler"
+		visible="true"
+		class="org.jdatepicker.impl.JDatePickerImpl$InternalEventHandler"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.impl.SqlDateModel_1591408992177"
+		name="SqlDateModel"
+		description="Custom component: org.jdatepicker.impl.SqlDateModel"
+		visible="true"
+		class="org.jdatepicker.impl.SqlDateModel"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.impl.UtilCalendarModel_1591408992177"
+		name="UtilCalendarModel"
+		description="Custom component: org.jdatepicker.impl.UtilCalendarModel"
+		visible="true"
+		class="org.jdatepicker.impl.UtilCalendarModel"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.impl.UtilDateModel_1591408992177"
+		name="UtilDateModel"
+		description="Custom component: org.jdatepicker.impl.UtilDateModel"
+		visible="true"
+		class="org.jdatepicker.impl.UtilDateModel"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.JDateComponent_1591408992177"
+		name="JDateComponent"
+		description="Custom component: org.jdatepicker.JDateComponent"
+		visible="true"
+		class="org.jdatepicker.JDateComponent"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.JDateComponentFactory_1591408992177"
+		name="JDateComponentFactory"
+		description="Custom component: org.jdatepicker.JDateComponentFactory"
+		visible="true"
+		class="org.jdatepicker.JDateComponentFactory"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.JDatePanel_1591408992177"
+		name="JDatePanel"
+		description="Custom component: org.jdatepicker.JDatePanel"
+		visible="true"
+		class="org.jdatepicker.JDatePanel"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.JDatePicker_1591408992177"
+		name="JDatePicker"
+		description="Custom component: org.jdatepicker.JDatePicker"
+		visible="true"
+		class="org.jdatepicker.JDatePicker"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<addComponent
+		id="org.jdatepicker.util.JDatePickerUtil_1591408992177"
+		name="JDatePickerUtil"
+		description="Custom component: org.jdatepicker.util.JDatePickerUtil"
+		visible="true"
+		class="org.jdatepicker.util.JDatePickerUtil"
+		category="jdatepicker-1.3.4_1591408992177"/>
+	<visibleElement
+		id="forms-1.3.0_1591408979986"
+		visible="true"/>
+	<removeCategory
+		id="forms-1.3.0_1591408979986"/>
+	<removeCategory
+		id="jdatepicker-1.3.4_1591408992177"/>
+	<addCategory
+		id="DateChooser_1591413875582"
+		name="DateChooser"
+		description="Container with import elements from D:\[Seminar2020]\manageRestaurants\DateChooser.jar"
+		visible="true"
+		open="true"/>
+	<addComponent
+		id="datechooser.beans.DateChooserCombo_1591413875582"
+		name="DateChooserCombo"
+		description="Custom component: datechooser.beans.DateChooserCombo"
+		visible="true"
+		class="datechooser.beans.DateChooserCombo"
+		category="DateChooser_1591413875582"/>
+	<moveEntry
+		id="datechooser.beans.DateChooserCombo_1591413875582"
+		category="DateChooser_1591413875582"/>
+	<addComponent
+		id="datechooser.beans.DateChooserPanel_1591413980499"
+		name="DateChooserPanel"
+		description="Custom component: datechooser.beans.DateChooserPanel"
+		visible="true"
+		class="datechooser.beans.DateChooserPanel"
+		category="DateChooser_1591413875582"/>
+	<addComponent
+		id="datechooser.beans.DateChooserCombo_1591413980499"
+		name="DateChooserCombo"
+		description="Custom component: datechooser.beans.DateChooserCombo"
+		visible="true"
+		class="datechooser.beans.DateChooserCombo"
+		category="DateChooser_1591413875582"/>
+	<addComponent
+		id="datechooser.beans.DateChooserDialog_1591413980499"
+		name="DateChooserDialog"
+		description="Custom component: datechooser.beans.DateChooserDialog"
+		visible="true"
+		class="datechooser.beans.DateChooserDialog"
+		category="DateChooser_1591413875582"/>
+</commands>
