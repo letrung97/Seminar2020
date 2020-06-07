@@ -25,8 +25,9 @@ import javax.swing.table.DefaultTableModel;
 
 import model.nhan_vien;
 import net.proteanit.sql.DbUtils;
-import dao.branch_details_db;
+import dao.detail_restaurants_db;
 import dao.employee_details_db;
+import dao.list_restaurant_db;
 
 public class employee_details extends JFrame {
 	nhan_vien user = new nhan_vien();
@@ -45,6 +46,7 @@ public class employee_details extends JFrame {
 	private JComboBox<String> comboBox_2;
 	private JComboBox<String> comboBox_3;
 	private JTable table;
+	private JComboBox<String> comboBox_4;
 
 	/**
 	 * Launch the application.
@@ -68,7 +70,7 @@ public class employee_details extends JFrame {
 	public employee_details() {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Quản lý nhân viên");
-		setBounds(100, 100, 800, 500);
+		setBounds(100, 100, 800, 626);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -78,9 +80,9 @@ public class employee_details extends JFrame {
 		contentPane.add(panel, BorderLayout.WEST);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[]{222, 0};
-		gbl_panel.rowHeights = new int[]{17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel.rowHeights = new int[]{17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_panel.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		JLabel lblMNhnVin = new JLabel("Mã nhân viên");
@@ -115,7 +117,7 @@ public class employee_details extends JFrame {
 		panel.add(textField_1, gbc_textField_1);
 		textField_1.setColumns(10);
 		
-		JLabel lblMNhHng = new JLabel("Mã nhà hàng (ID)");
+		JLabel lblMNhHng = new JLabel("Mã nhà hàng");
 		GridBagConstraints gbc_lblMNhHng = new GridBagConstraints();
 		gbc_lblMNhHng.insets = new Insets(0, 0, 5, 0);
 		gbc_lblMNhHng.gridx = 0;
@@ -134,12 +136,42 @@ public class employee_details extends JFrame {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		comboBox.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+					try {
+						update_cb4(Integer.parseInt(comboBox.getSelectedItem().toString()));
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+			}});
+		
+		JLabel lblId = new JLabel("ID");
+		GridBagConstraints gbc_lblId = new GridBagConstraints();
+		gbc_lblId.insets = new Insets(0, 0, 5, 0);
+		gbc_lblId.gridx = 0;
+		gbc_lblId.gridy = 6;
+		panel.add(lblId, gbc_lblId);
+		
+		comboBox_4 = new JComboBox<String>();
+		GridBagConstraints gbc_comboBox_4 = new GridBagConstraints();
+		gbc_comboBox_4.insets = new Insets(0, 0, 5, 0);
+		gbc_comboBox_4.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBox_4.gridx = 0;
+		gbc_comboBox_4.gridy = 7;
+		panel.add(comboBox_4, gbc_comboBox_4);
+		try {
+			update_cb4(Integer.parseInt(comboBox.getSelectedItem().toString()));
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		JLabel lblSCmnd = new JLabel("Số CMND");
 		GridBagConstraints gbc_lblSCmnd = new GridBagConstraints();
 		gbc_lblSCmnd.insets = new Insets(0, 0, 5, 0);
 		gbc_lblSCmnd.gridx = 0;
-		gbc_lblSCmnd.gridy = 6;
+		gbc_lblSCmnd.gridy = 8;
 		panel.add(lblSCmnd, gbc_lblSCmnd);
 		
 		textField_2 = new JTextField();
@@ -147,7 +179,7 @@ public class employee_details extends JFrame {
 		gbc_textField_2.insets = new Insets(0, 0, 5, 0);
 		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textField_2.gridx = 0;
-		gbc_textField_2.gridy = 7;
+		gbc_textField_2.gridy = 9;
 		panel.add(textField_2, gbc_textField_2);
 		textField_2.setColumns(10);
 		
@@ -155,7 +187,7 @@ public class employee_details extends JFrame {
 		GridBagConstraints gbc_lblChcV = new GridBagConstraints();
 		gbc_lblChcV.insets = new Insets(0, 0, 5, 0);
 		gbc_lblChcV.gridx = 0;
-		gbc_lblChcV.gridy = 8;
+		gbc_lblChcV.gridy = 10;
 		panel.add(lblChcV, gbc_lblChcV);
 		
 		comboBox_1 = new JComboBox<String>();
@@ -164,14 +196,14 @@ public class employee_details extends JFrame {
 		gbc_comboBox_1.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox_1.gridx = 0;
-		gbc_comboBox_1.gridy = 9;
+		gbc_comboBox_1.gridy = 11;
 		panel.add(comboBox_1, gbc_comboBox_1);
 		
 		JLabel lblSNgyNgh = new JLabel("Số ngày nghỉ có phép");
 		GridBagConstraints gbc_lblSNgyNgh = new GridBagConstraints();
 		gbc_lblSNgyNgh.insets = new Insets(0, 0, 5, 0);
 		gbc_lblSNgyNgh.gridx = 0;
-		gbc_lblSNgyNgh.gridy = 10;
+		gbc_lblSNgyNgh.gridy = 12;
 		panel.add(lblSNgyNgh, gbc_lblSNgyNgh);
 		
 		comboBox_2 = new JComboBox<String>();
@@ -180,14 +212,14 @@ public class employee_details extends JFrame {
 		gbc_comboBox_2.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox_2.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox_2.gridx = 0;
-		gbc_comboBox_2.gridy = 11;
+		gbc_comboBox_2.gridy = 13;
 		panel.add(comboBox_2, gbc_comboBox_2);
 		
 		JLabel lblSNgyNgh_1 = new JLabel("số ngày nghỉ không phép");
 		GridBagConstraints gbc_lblSNgyNgh_1 = new GridBagConstraints();
 		gbc_lblSNgyNgh_1.insets = new Insets(0, 0, 5, 0);
 		gbc_lblSNgyNgh_1.gridx = 0;
-		gbc_lblSNgyNgh_1.gridy = 12;
+		gbc_lblSNgyNgh_1.gridy = 14;
 		panel.add(lblSNgyNgh_1, gbc_lblSNgyNgh_1);
 		
 		comboBox_3 = new JComboBox<String>();
@@ -196,7 +228,7 @@ public class employee_details extends JFrame {
 		gbc_comboBox_3.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox_3.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox_3.gridx = 0;
-		gbc_comboBox_3.gridy = 13;
+		gbc_comboBox_3.gridy = 15;
 		panel.add(comboBox_3, gbc_comboBox_3);
 		
 		JButton btnAdd = new JButton("Add");
@@ -208,7 +240,7 @@ public class employee_details extends JFrame {
 		GridBagConstraints gbc_btnAdd = new GridBagConstraints();
 		gbc_btnAdd.insets = new Insets(0, 0, 5, 0);
 		gbc_btnAdd.gridx = 0;
-		gbc_btnAdd.gridy = 15;
+		gbc_btnAdd.gridy = 17;
 		panel.add(btnAdd, gbc_btnAdd);
 		
 		JButton btnEdit = new JButton("Edit");
@@ -220,7 +252,7 @@ public class employee_details extends JFrame {
 		GridBagConstraints gbc_btnEdit = new GridBagConstraints();
 		gbc_btnEdit.insets = new Insets(0, 0, 5, 0);
 		gbc_btnEdit.gridx = 0;
-		gbc_btnEdit.gridy = 16;
+		gbc_btnEdit.gridy = 18;
 		panel.add(btnEdit, gbc_btnEdit);
 		
 		JButton btnDelete = new JButton("Delete");
@@ -230,8 +262,9 @@ public class employee_details extends JFrame {
 			}
 		});
 		GridBagConstraints gbc_btnDelete = new GridBagConstraints();
+		gbc_btnDelete.insets = new Insets(0, 0, 5, 0);
 		gbc_btnDelete.gridx = 0;
-		gbc_btnDelete.gridy = 17;
+		gbc_btnDelete.gridy = 19;
 		panel.add(btnDelete, gbc_btnDelete);
 		
 		JPanel panel_2 = new JPanel();
@@ -264,10 +297,18 @@ public class employee_details extends JFrame {
 		tb_refresh();
 	}
 	private void update_cb() throws SQLException{
-		branch_details_db bd = new branch_details_db();
+		list_restaurant_db bd = new list_restaurant_db();
 		ResultSet rs = bd.get();
 		while (rs.next()){
-			comboBox.addItem(rs.getString(0));
+			comboBox.addItem(rs.getString("ma_nha_hang"));
+		}
+	}
+	private void update_cb4(int id) throws SQLException{
+		detail_restaurants_db bd = new detail_restaurants_db();
+		ResultSet rs = bd.getById(id);
+		comboBox_4.removeAllItems();
+		while (rs.next()){
+			comboBox_4.addItem(rs.getString("ID"));
 		}
 	}
 	private void ObjectCreation(){

@@ -47,7 +47,7 @@ public class place_order_db {
 	public void update(don_dat user){
 		try {
 			String updateQuery = "update don_dat set "
-					+ "ten_khach_hang = " + user.getTen_khach_hang()
+					+ "ten_khach_hang = '" + user.getTen_khach_hang() + "'"
 					+ "ngay_dat = " + user.getNgay_dat()
 					+ "ma_nha_hang = " + user.getMa_nha_hang()
 					+ "so_ban_dat = " + user.getSo_ban_dat()

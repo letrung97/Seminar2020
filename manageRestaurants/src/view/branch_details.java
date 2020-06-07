@@ -9,6 +9,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -25,6 +26,8 @@ import javax.swing.table.DefaultTableModel;
 import model.danh_sach_thong_tin;
 import net.proteanit.sql.DbUtils;
 import dao.branch_details_db;
+import dao.detail_restaurants_db;
+import dao.list_restaurant_db;
 
 public class branch_details extends JFrame {
 	danh_sach_thong_tin user = new danh_sach_thong_tin();
@@ -35,12 +38,13 @@ public class branch_details extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JComboBox<String> comboBox;
 	private JTable table;
+	private JComboBox<String> comboBox_1;
+	private JComboBox<String> comboBox_2;
 
 	/**
 	 * Launch the application.
@@ -79,37 +83,84 @@ public class branch_details extends JFrame {
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		JLabel lblId = new JLabel("ID");
-		lblId.setFont(new Font("Tahoma", Font.BOLD, 14));
-		GridBagConstraints gbc_lblId = new GridBagConstraints();
-		gbc_lblId.insets = new Insets(0, 0, 5, 0);
-		gbc_lblId.gridx = 0;
-		gbc_lblId.gridy = 0;
-		panel.add(lblId, gbc_lblId);
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				delete();
+			}
+		});
 		
+		JButton btnEdit = new JButton("Edit");
+		btnEdit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				edit();
+			}
+		});
+		
+		JButton btnAdd = new JButton("Add");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				add();
+			}
+		});
+		
+		JLabel lblMNhHng = new JLabel("Mã nhà hàng");
+		lblMNhHng.setFont(new Font("Tahoma", Font.BOLD, 14));
+		GridBagConstraints gbc_lblMNhHng = new GridBagConstraints();
+		gbc_lblMNhHng.insets = new Insets(0, 0, 5, 0);
+		gbc_lblMNhHng.gridx = 0;
+		gbc_lblMNhHng.gridy = 1;
+		panel.add(lblMNhHng, gbc_lblMNhHng);
+		
+		comboBox_1 = new JComboBox<String>();
+		GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
+		gbc_comboBox_1.insets = new Insets(0, 0, 5, 0);
+		gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBox_1.gridx = 0;
+		gbc_comboBox_1.gridy = 2;
+		panel.add(comboBox_1, gbc_comboBox_1);
+		try {
+			update_cb();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		comboBox_1.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+					try {
+						update_cb4(Integer.parseInt(comboBox_1.getSelectedItem().toString()));
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+			}});
 		JLabel lblIdNhHng = new JLabel("ID nhà hàng");
 		lblIdNhHng.setFont(new Font("Tahoma", Font.BOLD, 14));
 		GridBagConstraints gbc_lblIdNhHng = new GridBagConstraints();
 		gbc_lblIdNhHng.insets = new Insets(0, 0, 5, 0);
 		gbc_lblIdNhHng.gridx = 0;
-		gbc_lblIdNhHng.gridy = 2;
+		gbc_lblIdNhHng.gridy = 3;
 		panel.add(lblIdNhHng, gbc_lblIdNhHng);
 		
-		textField = new JTextField();
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.insets = new Insets(0, 0, 5, 0);
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.gridx = 0;
-		gbc_textField.gridy = 3;
-		panel.add(textField, gbc_textField);
-		textField.setColumns(10);
+		comboBox_2 = new JComboBox<String>();
+		GridBagConstraints gbc_comboBox_2 = new GridBagConstraints();
+		gbc_comboBox_2.insets = new Insets(0, 0, 5, 0);
+		gbc_comboBox_2.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBox_2.gridx = 0;
+		gbc_comboBox_2.gridy = 4;
+		panel.add(comboBox_2, gbc_comboBox_2);
+		try {
+			update_cb4(Integer.parseInt(comboBox_1.getSelectedItem().toString()));
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		JLabel lblTnNhHng = new JLabel("Tên quản lý");
 		lblTnNhHng.setFont(new Font("Tahoma", Font.BOLD, 14));
 		GridBagConstraints gbc_lblTnNhHng = new GridBagConstraints();
 		gbc_lblTnNhHng.insets = new Insets(0, 0, 5, 0);
 		gbc_lblTnNhHng.gridx = 0;
-		gbc_lblTnNhHng.gridy = 4;
+		gbc_lblTnNhHng.gridy = 5;
 		panel.add(lblTnNhHng, gbc_lblTnNhHng);
 		
 		textField_1 = new JTextField();
@@ -117,7 +168,7 @@ public class branch_details extends JFrame {
 		gbc_textField_1.insets = new Insets(0, 0, 5, 0);
 		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textField_1.gridx = 0;
-		gbc_textField_1.gridy = 5;
+		gbc_textField_1.gridy = 6;
 		panel.add(textField_1, gbc_textField_1);
 		textField_1.setColumns(10);
 		
@@ -126,7 +177,7 @@ public class branch_details extends JFrame {
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel.gridx = 0;
-		gbc_lblNewLabel.gridy = 6;
+		gbc_lblNewLabel.gridy = 7;
 		panel.add(lblNewLabel, gbc_lblNewLabel);
 		
 		textField_2 = new JTextField();
@@ -134,7 +185,7 @@ public class branch_details extends JFrame {
 		gbc_textField_2.insets = new Insets(0, 0, 5, 0);
 		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textField_2.gridx = 0;
-		gbc_textField_2.gridy = 7;
+		gbc_textField_2.gridy = 8;
 		panel.add(textField_2, gbc_textField_2);
 		textField_2.setColumns(10);
 		
@@ -143,7 +194,7 @@ public class branch_details extends JFrame {
 		GridBagConstraints gbc_lblTngSBn = new GridBagConstraints();
 		gbc_lblTngSBn.insets = new Insets(0, 0, 5, 0);
 		gbc_lblTngSBn.gridx = 0;
-		gbc_lblTngSBn.gridy = 8;
+		gbc_lblTngSBn.gridy = 9;
 		panel.add(lblTngSBn, gbc_lblTngSBn);
 		
 		textField_3 = new JTextField();
@@ -151,7 +202,7 @@ public class branch_details extends JFrame {
 		gbc_textField_3.insets = new Insets(0, 0, 5, 0);
 		gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textField_3.gridx = 0;
-		gbc_textField_3.gridy = 9;
+		gbc_textField_3.gridy = 10;
 		panel.add(textField_3, gbc_textField_3);
 		textField_3.setColumns(10);
 		
@@ -162,43 +213,22 @@ public class branch_details extends JFrame {
 		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox.gridx = 0;
-		gbc_comboBox.gridy = 10;
+		gbc_comboBox.gridy = 11;
 		panel.add(comboBox, gbc_comboBox);
-		
-		JButton btnAdd = new JButton("Add");
-		btnAdd.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				add();
-			}
-		});
 		GridBagConstraints gbc_btnAdd = new GridBagConstraints();
 		gbc_btnAdd.insets = new Insets(0, 0, 5, 0);
 		gbc_btnAdd.gridx = 0;
-		gbc_btnAdd.gridy = 12;
+		gbc_btnAdd.gridy = 13;
 		panel.add(btnAdd, gbc_btnAdd);
-		
-		JButton btnEdit = new JButton("Edit");
-		btnEdit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				edit();
-			}
-		});
 		GridBagConstraints gbc_btnEdit = new GridBagConstraints();
 		gbc_btnEdit.insets = new Insets(0, 0, 5, 0);
 		gbc_btnEdit.gridx = 0;
-		gbc_btnEdit.gridy = 13;
+		gbc_btnEdit.gridy = 14;
 		panel.add(btnEdit, gbc_btnEdit);
-		
-		JButton btnDelete = new JButton("Delete");
-		btnDelete.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				delete();
-			}
-		});
 		GridBagConstraints gbc_btnDelete = new GridBagConstraints();
 		gbc_btnDelete.insets = new Insets(0, 0, 5, 0);
 		gbc_btnDelete.gridx = 0;
-		gbc_btnDelete.gridy = 14;
+		gbc_btnDelete.gridy = 15;
 		panel.add(btnDelete, gbc_btnDelete);
 		
 		JPanel panel_2 = new JPanel();
@@ -230,9 +260,24 @@ public class branch_details extends JFrame {
 		contentPane.add(table, BorderLayout.CENTER);
 		tb_refresh();
 	}
+	private void update_cb() throws SQLException{
+		list_restaurant_db bd = new list_restaurant_db();
+		ResultSet rs = bd.get();
+		while (rs.next()){
+			comboBox_1.addItem(rs.getString("ma_nha_hang"));
+		}
+	}
+	private void update_cb4(int id) throws SQLException{
+		detail_restaurants_db bd = new detail_restaurants_db();
+		ResultSet rs = bd.getById(id);
+		comboBox_2.removeAllItems();
+		while (rs.next()){
+			comboBox_2.addItem(rs.getString("ID"));
+		}
+	}
 	private void ObjectCreation(){
 		user = new danh_sach_thong_tin();
-		user.setID(Integer.parseInt(textField.getText()));
+		user.setID(Integer.parseInt(comboBox_1.getSelectedItem().toString()));
 		user.setQuan_ly(textField_1.getText());
 		user.setSo_nhan_cong(Integer.parseInt(textField_2.getText()));
 		user.setSo_ban(Integer.parseInt(textField_3.getText()));

@@ -19,12 +19,12 @@ public class branch_details_db {
 	public void insert(danh_sach_thong_tin user){
 		try {
 			String insertQuery = "insert into danh_sach_thong_tin"
-					+ "('quan_ly, so_nhan_cong, so ban, trang thai')"
+					+ "(quan_ly, so_nhan_cong, so_ban, trang_thai)"
 					+ " values('" + user.getQuan_ly() + "'"
 					+ "," + user.getSo_nhan_cong()
 					+ "," + user.getSo_ban()
 					+ "," + user.isTrang_thai()
-					+ "')";
+					+ ")";
 			statement = conn.prepareStatement(insertQuery);
 			statement.execute();
 			JOptionPane.showMessageDialog(null, "Inserted");
@@ -46,7 +46,7 @@ public class branch_details_db {
 	public void update(danh_sach_thong_tin user){
 		try {
 			String updateQuery = "update danh_sach_thong_tin set "
-					+ "quan_ly = " + user.getQuan_ly()
+					+ "quan_ly = '" + user.getQuan_ly() + "'"
 					+ "so_nhan_cong = " + user.getSo_nhan_cong()
 					+ "so_ban = " + user.getSo_ban()
 					+ "trang_thai = " + user.isTrang_thai()

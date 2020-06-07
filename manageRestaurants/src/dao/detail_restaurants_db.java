@@ -19,10 +19,13 @@ public class detail_restaurants_db {
 	public void insert(main_info user){
 		try {
 			String insertQuery = "insert into main_info"
-					+ "(ma_nha_hang, ID_quan, ID_phuong)"
+					+ "(ma_nha_hang, ID_quan, ID_phuong,ten_quan,ten_phuong,ten_nha_hang)"
 					+ " values(" + user.getMa_nha_hang()
 					+ "," + user.getID_quan()
 					+ "," + user.getID_phuong()
+					+ ",'" + user.getTen_quan() + "'"
+					+ ",'" + user.getTen_phuong() + "'"
+					+ ",'" + user.getTen_nha_hang() + "'"
 					+ ")";
 			statement = conn.prepareStatement(insertQuery);
 			statement.execute();
@@ -48,6 +51,9 @@ public class detail_restaurants_db {
 					+ "ma_nha_hang = " + user.getMa_nha_hang()
 					+ "ID_quan = " + user.getID_quan()
 					+ "ID_phuong = " + user.getID_phuong()
+					+ "ten_quan = '" + user.getTen_quan() + "'"
+					+ "ten_phuong = '" + user.getTen_phuong() + "'"
+					+ "ten_nha_hang = '" + user.getTen_nha_hang() + "'"
 					+ "where ID = " + user.getID();
 			statement = conn.prepareStatement(updateQuery);
 			statement.execute();
@@ -70,7 +76,7 @@ public class detail_restaurants_db {
 	}
 	public ResultSet get(){
 		try {
-			String query= "select * from main_info";
+			String query= "select ID,ten_nha_hang,ten_quan,ten_phuong from main_info";
 			statement = conn.prepareStatement(query);
 			result = statement.executeQuery();
 		} catch (SQLException ex){

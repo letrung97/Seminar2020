@@ -20,13 +20,13 @@ public class employee_details_db {
 		try {
 			String insertQuery = "insert into nhan_vien"
 					+ "(ID, ten_nhan_vien, id_num, chuc_vu, so_ngay_nghi_co_phep, so_ngay_nghi_khong_phep)"
-					+ " values('" + user.getID() + "'"
-					+ "," + user.getTen_nhan_vien()
+					+ " values(" + user.getID()
+					+ ",'" + user.getTen_nhan_vien() + "'"
 					+ "," + user.getId_num()
-					+ "," + user.getChuc_vu()
+					+ ",'" + user.getChuc_vu() + "'"
 					+ "," + user.getSo_ngay_nghi_co_phep()
 					+ "," + user.getSo_ngay_nghi_khong_phep()
-					+ "')";
+					+ ")";
 			statement = conn.prepareStatement(insertQuery);
 			statement.execute();
 			JOptionPane.showMessageDialog(null, "Inserted");
@@ -49,9 +49,9 @@ public class employee_details_db {
 		try {
 			String updateQuery = "update nhan_vien set "
 					+ "ID = " + user.getID()
-					+ "ten_nhan_vien = " + user.getTen_nhan_vien()
+					+ "ten_nhan_vien = '" + user.getTen_nhan_vien() + "'"
 					+ "id_num = " + user.getId_num()
-					+ "chuc_vu = " + user.getChuc_vu()
+					+ "chuc_vu = '" + user.getChuc_vu() + "'"
 					+ "so_ngay_nghi_co phep = " + user.getSo_ngay_nghi_co_phep()
 					+ "so_ngay_nghi_khong phep = " + user.getSo_ngay_nghi_khong_phep()
 					+ "where ma_nha_vien = " + user.getMa_nhan_vien();

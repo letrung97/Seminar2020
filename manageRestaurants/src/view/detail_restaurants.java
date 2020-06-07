@@ -162,7 +162,11 @@ public class detail_restaurants extends JFrame {
 		gbc_comboBox_1.gridx = 0;
 		gbc_comboBox_1.gridy = 8;
 		panel.add(comboBox_1, gbc_comboBox_1);
-		
+		try {
+			update_CB(comboBox.getSelectedIndex()+1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -239,15 +243,24 @@ public class detail_restaurants extends JFrame {
 		ResultSet rs = ls.get();
 		comboBox_2.removeAllItems();
 		while (rs.next()){
-			comboBox_2.addItem(rs.getString("ma_nha_hang"));
+			comboBox_2.addItem(rs.getString("ten_nha_hang"));
 		}
 	}
 	private void ObjectCreation(){
 		user = new main_info();
-		user.setMa_nha_hang(Integer.parseInt(comboBox_2.getSelectedItem().toString()));
+		try {
+			user.setMa_nha_hang(Integer.parseInt(ls.getByName(comboBox_2.getSelectedItem().toString()).getString("ma_nha_hang")));
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		user.setTen_nha_hang(comboBox_2.getSelectedItem().toString());
 		user.setID_quan(comboBox.getSelectedIndex()+1);
 		user.setID_phuong(comboBox_1.getSelectedIndex()+1);
 		user.setID(Integer.parseInt(textField.getText()));
+		user.setTen_quan(comboBox.getSelectedItem().toString());
+		user.setTen_phuong(comboBox_1.getSelectedItem().toString());
 	}
 	private void tb_refresh(){
 		result = db.get();

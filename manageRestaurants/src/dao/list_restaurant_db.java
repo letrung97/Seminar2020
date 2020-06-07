@@ -45,7 +45,7 @@ public class list_restaurant_db {
 	public void update(danh_sach_nha_hang user){
 		try {
 			String updateQuery = "update danh_sach_nha_hang set "
-					+ "ten_nha_hang = " + user.getTen_nha_hang()
+					+ "ten_nha_hang = '" + user.getTen_nha_hang() + "'"
 					+ "so_chi_nhanh = " + user.getSo_chi_nhanh()
 					+ "loai_nha_hang = " + user.isLoai_nha_hang()
 					+ "where ma_nha_hang = " + user.getMa_nha_hang();
@@ -71,6 +71,16 @@ public class list_restaurant_db {
 	public ResultSet get(){
 		try {
 			String query= "select * from danh_sach_nha_hang";
+			statement = conn.prepareStatement(query);
+			result = statement.executeQuery();
+		} catch (SQLException ex){
+			JOptionPane.showMessageDialog(null, ex.toString());
+		}
+		return result;
+	}
+	public ResultSet getByName(String str){
+		try {
+			String query= "select * from danh_sach_nha_hang where ten_nha_hang = '" + str + "'";
 			statement = conn.prepareStatement(query);
 			result = statement.executeQuery();
 		} catch (SQLException ex){
