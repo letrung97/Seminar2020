@@ -48,11 +48,11 @@ public class detail_restaurants_db {
 	public void update(main_info user){
 		try {
 			String updateQuery = "update main_info set "
-					+ "ma_nha_hang = " + user.getMa_nha_hang()
-					+ "ID_quan = " + user.getID_quan()
-					+ "ID_phuong = " + user.getID_phuong()
-					+ "ten_quan = '" + user.getTen_quan() + "'"
-					+ "ten_phuong = '" + user.getTen_phuong() + "'"
+					+ "ma_nha_hang = " + user.getMa_nha_hang() + ","
+					+ "ID_quan = " + user.getID_quan() + ","
+					+ "ID_phuong = " + user.getID_phuong() + ","
+					+ "ten_quan = '" + user.getTen_quan() + "'" + ","
+					+ "ten_phuong = '" + user.getTen_phuong() + "'" + ","
 					+ "ten_nha_hang = '" + user.getTen_nha_hang() + "'"
 					+ "where ID = " + user.getID();
 			statement = conn.prepareStatement(updateQuery);

@@ -46,9 +46,9 @@ public class branch_details_db {
 	public void update(danh_sach_thong_tin user){
 		try {
 			String updateQuery = "update danh_sach_thong_tin set "
-					+ "quan_ly = '" + user.getQuan_ly() + "'"
-					+ "so_nhan_cong = " + user.getSo_nhan_cong()
-					+ "so_ban = " + user.getSo_ban()
+					+ "quan_ly = '" + user.getQuan_ly() + "'" + ","
+					+ "so_nhan_cong = " + user.getSo_nhan_cong() + ","
+					+ "so_ban = " + user.getSo_ban() + ","
 					+ "trang_thai = " + user.isTrang_thai()
 					+ "where ID = " + user.getID();
 			statement = conn.prepareStatement(updateQuery);

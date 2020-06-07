@@ -45,9 +45,9 @@ public class list_restaurant_db {
 	public void update(danh_sach_nha_hang user){
 		try {
 			String updateQuery = "update danh_sach_nha_hang set "
-					+ "ten_nha_hang = '" + user.getTen_nha_hang() + "'"
-					+ "so_chi_nhanh = " + user.getSo_chi_nhanh()
-					+ "loai_nha_hang = " + user.isLoai_nha_hang()
+					+ "ten_nha_hang = '" + user.getTen_nha_hang() + "'" + ","
+					+ "so_chi_nhanh = " + user.getSo_chi_nhanh() + ","
+					+ "loai_nha_hang = " + user.isLoai_nha_hang() 
 					+ "where ma_nha_hang = " + user.getMa_nha_hang();
 			statement = conn.prepareStatement(updateQuery);
 			statement.execute();
