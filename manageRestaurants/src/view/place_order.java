@@ -28,6 +28,7 @@ import net.proteanit.sql.DbUtils;
 import dao.detail_restaurants_db;
 import dao.list_restaurant_db;
 import dao.place_order_db;
+import java.awt.SystemColor;
 
 public class place_order extends JFrame {
 	don_dat user = new don_dat();
@@ -77,12 +78,13 @@ public class place_order extends JFrame {
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(SystemColor.activeCaption);
 		contentPane.add(panel, BorderLayout.WEST);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[]{222, 0};
-		gbl_panel.rowHeights = new int[]{17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel.rowHeights = new int[]{17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_panel.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		JLabel label = new JLabel("Mã đơn");
@@ -94,6 +96,7 @@ public class place_order extends JFrame {
 		panel.add(label, gbc_label);
 		
 		textField = new JTextField();
+		textField.setEditable(false);
 		GridBagConstraints gbc_textField = new GridBagConstraints();
 		gbc_textField.insets = new Insets(0, 0, 5, 0);
 		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
@@ -138,7 +141,7 @@ public class place_order extends JFrame {
 		
 		
 		
-		JLabel lblMNhHng = new JLabel("Mã nhà hàng");
+		JLabel lblMNhHng = new JLabel("Tên nhà hàng");
 		lblMNhHng.setFont(new Font("Tahoma", Font.BOLD, 14));
 		GridBagConstraints gbc_lblMNhHng = new GridBagConstraints();
 		gbc_lblMNhHng.insets = new Insets(0, 0, 5, 0);
@@ -161,7 +164,9 @@ public class place_order extends JFrame {
 		comboBox.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 					try {
-						update_LS(Integer.parseInt(comboBox.getSelectedItem().toString()));
+						ResultSet rs =ls.getByName(comboBox.getSelectedItem().toString());
+						rs.next();
+						update_LS(rs.getInt("ma_nha_hang"));
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -184,50 +189,58 @@ public class place_order extends JFrame {
 		panel.add(textField_2, gbc_textField_2);
 		textField_2.setColumns(10);
 		
-		JButton btnAdd = new JButton("Add");
-		btnAdd.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				add();
-			}
-		});
+		JLabel lblIdNhHng = new JLabel("ID nhà hàng");
+		lblIdNhHng.setFont(new Font("Tahoma", Font.BOLD, 14));
+		GridBagConstraints gbc_lblIdNhHng = new GridBagConstraints();
+		gbc_lblIdNhHng.insets = new Insets(0, 0, 5, 0);
+		gbc_lblIdNhHng.gridx = 0;
+		gbc_lblIdNhHng.gridy = 11;
+		panel.add(lblIdNhHng, gbc_lblIdNhHng);
 		
 		comboBox_1 = new JComboBox<String>();
-		comboBox_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		comboBox_1.setModel(new DefaultComboBoxModel<String>(new String[] {"chọn nhà hàng"}));
 		GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
 		gbc_comboBox_1.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox_1.gridx = 0;
-		gbc_comboBox_1.gridy = 11;
+		gbc_comboBox_1.gridy = 13;
 		panel.add(comboBox_1, gbc_comboBox_1);
+		
+		JButton btnAdd = new JButton("Add");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btn_add();
+			}
+		});
 		GridBagConstraints gbc_btnAdd = new GridBagConstraints();
 		gbc_btnAdd.insets = new Insets(0, 0, 5, 0);
 		gbc_btnAdd.gridx = 0;
-		gbc_btnAdd.gridy = 15;
+		gbc_btnAdd.gridy = 17;
 		panel.add(btnAdd, gbc_btnAdd);
 		
 		JButton btnEdit = new JButton("Edit");
 		btnEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				edit();
+				btn_edit();
 			}
 		});
 		GridBagConstraints gbc_btnEdit = new GridBagConstraints();
 		gbc_btnEdit.insets = new Insets(0, 0, 5, 0);
 		gbc_btnEdit.gridx = 0;
-		gbc_btnEdit.gridy = 16;
+		gbc_btnEdit.gridy = 18;
 		panel.add(btnEdit, gbc_btnEdit);
 		
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				delete();
+				btn_delete();
 			}
 		});
 		GridBagConstraints gbc_btnDelete = new GridBagConstraints();
 		gbc_btnDelete.insets = new Insets(0, 0, 5, 0);
 		gbc_btnDelete.gridx = 0;
-		gbc_btnDelete.gridy = 17;
+		gbc_btnDelete.gridy = 19;
 		panel.add(btnDelete, gbc_btnDelete);
 		
 		JPanel panel_2 = new JPanel();
@@ -263,7 +276,7 @@ public class place_order extends JFrame {
 		ResultSet rs = ls.get();
 		comboBox.removeAllItems();
 		while (rs.next()){
-			comboBox.addItem(rs.getString("ma_nha_hang"));
+			comboBox.addItem(rs.getString("ten_nha_hang"));
 		}
 	}
 	private void update_LS(int id) throws SQLException{
@@ -276,7 +289,7 @@ public class place_order extends JFrame {
 	private void ObjectCreation(){
 		user = new don_dat();
 		user.setMa_don(Integer.parseInt(textField.getText()));
-		user.setNgay_dat(textField_4.getText());//yyyy-mm-dd
+		user.setNgay_dat(textField_4.getText());//dd-mm-yyyy
 		user.setSo_ban_dat(Integer.parseInt(textField_2.getText()));
 		user.setTen_khach_hang(textField_1.getText());
 		user.setID(Integer.parseInt(comboBox_1.getSelectedItem().toString()));
@@ -286,17 +299,17 @@ public class place_order extends JFrame {
 		result = db.get();
 		table.setModel(DbUtils.resultSetToTableModel(result));
 	}
-	private void add(){
+	private void btn_add(){
 		ObjectCreation();
 		db.insert(user);
 		tb_refresh();
 	}
-	private void edit(){
+	private void btn_edit(){
 		ObjectCreation();
 		db.update(user);
 		tb_refresh();
 	}
-	private void delete(){
+	private void btn_delete(){
 		ObjectCreation();
 		db.delete(user.getMa_don());
 		tb_refresh();

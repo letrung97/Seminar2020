@@ -29,6 +29,8 @@ import dao.detail_restaurants_db;
 import dao.list_restaurant_db;
 import dao.tp_hcm_db;
 
+import java.awt.SystemColor;
+
 public class detail_restaurants extends JFrame {
 	main_info user = new main_info();
 	tp_hcm_db tp = new tp_hcm_db(); 
@@ -75,6 +77,7 @@ public class detail_restaurants extends JFrame {
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(SystemColor.activeCaption);
 		contentPane.add(panel, BorderLayout.WEST);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[]{222, 0};
@@ -92,6 +95,7 @@ public class detail_restaurants extends JFrame {
 		panel.add(lblId, gbc_lblId);
 		
 		textField = new JTextField();
+		textField.setEditable(false);
 		GridBagConstraints gbc_textField = new GridBagConstraints();
 		gbc_textField.insets = new Insets(0, 0, 5, 0);
 		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
@@ -100,7 +104,7 @@ public class detail_restaurants extends JFrame {
 		panel.add(textField, gbc_textField);
 		textField.setColumns(10);
 		
-		JLabel lblMNhHng = new JLabel("M\u00E3 nh\u00E0 h\u00E0ng");
+		JLabel lblMNhHng = new JLabel("Tên nhà hàng");
 		lblMNhHng.setFont(new Font("Tahoma", Font.BOLD, 14));
 		GridBagConstraints gbc_lblMNhHng = new GridBagConstraints();
 		gbc_lblMNhHng.anchor = GridBagConstraints.SOUTH;
@@ -170,7 +174,7 @@ public class detail_restaurants extends JFrame {
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				add();
+				btn_add();
 			}
 		});
 		GridBagConstraints gbc_btnAdd = new GridBagConstraints();
@@ -182,7 +186,7 @@ public class detail_restaurants extends JFrame {
 		JButton btnEdit = new JButton("Edit");
 		btnEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				edit();
+				btn_edit();
 			}
 		});
 		GridBagConstraints gbc_btnEdit = new GridBagConstraints();
@@ -194,7 +198,7 @@ public class detail_restaurants extends JFrame {
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				delete();
+				btn_delete();
 			}
 		});
 		GridBagConstraints gbc_btnDelete = new GridBagConstraints();
@@ -248,8 +252,14 @@ public class detail_restaurants extends JFrame {
 	}
 	private void ObjectCreation(){
 		user = new main_info();
+		if (textField.getText().isEmpty())
+			user.setID(0);
+		else
+			user.setID(Integer.parseInt(textField.getText()));
 		try {
-			user.setMa_nha_hang(Integer.parseInt(ls.getByName(comboBox_2.getSelectedItem().toString()).getString("ma_nha_hang")));
+			ResultSet rs =ls.getByName(comboBox_2.getSelectedItem().toString());
+			rs.next();
+			user.setMa_nha_hang(Integer.parseInt(rs.getString("ma_nha_hang")));
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -258,7 +268,6 @@ public class detail_restaurants extends JFrame {
 		user.setTen_nha_hang(comboBox_2.getSelectedItem().toString());
 		user.setID_quan(comboBox.getSelectedIndex()+1);
 		user.setID_phuong(comboBox_1.getSelectedIndex()+1);
-		user.setID(Integer.parseInt(textField.getText()));
 		user.setTen_quan(comboBox.getSelectedItem().toString());
 		user.setTen_phuong(comboBox_1.getSelectedItem().toString());
 	}
@@ -266,17 +275,17 @@ public class detail_restaurants extends JFrame {
 		result = db.get();
 		table.setModel(DbUtils.resultSetToTableModel(result));
 	}
-	private void add(){
+	private void btn_add(){
 		ObjectCreation();
 		db.insert(user);
 		tb_refresh();
 	}
-	private void edit(){
+	private void btn_edit(){
 		ObjectCreation();
 		db.update(user);
 		tb_refresh();
 	}
-	private void delete(){
+	private void btn_delete(){
 		ObjectCreation();
 		db.delete(user.getID());
 		tb_refresh();

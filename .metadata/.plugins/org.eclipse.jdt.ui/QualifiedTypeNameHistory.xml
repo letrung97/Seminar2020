@@ -22,7 +22,6 @@
 <fullyQualifiedTypeName name="net.proteanit.sql.DbUtils"/>
 <fullyQualifiedTypeName name="model.main_info"/>
 <fullyQualifiedTypeName name="dao.tp_hcm_db"/>
-<fullyQualifiedTypeName name="dao.list_restaurant_db"/>
 <fullyQualifiedTypeName name="dao.place_order_db"/>
 <fullyQualifiedTypeName name="model.don_dat"/>
 <fullyQualifiedTypeName name="dao.detail_restaurants_db"/>
@@ -32,4 +31,5 @@
 <fullyQualifiedTypeName name="model.nhan_vien"/>
 <fullyQualifiedTypeName name="dao.employee_details_db"/>
 <fullyQualifiedTypeName name="dao.branch_details_db"/>
+<fullyQualifiedTypeName name="dao.list_restaurant_db"/>
 </qualifiedTypeNameHistroy>

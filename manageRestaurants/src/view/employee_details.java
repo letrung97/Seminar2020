@@ -29,9 +29,12 @@ import dao.detail_restaurants_db;
 import dao.employee_details_db;
 import dao.list_restaurant_db;
 
+import java.awt.SystemColor;
+
 public class employee_details extends JFrame {
 	nhan_vien user = new nhan_vien();
 	employee_details_db db = new employee_details_db();
+	list_restaurant_db ls = new list_restaurant_db();
 	ResultSet result = null;
 	/**
 	 * 
@@ -77,6 +80,7 @@ public class employee_details extends JFrame {
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(SystemColor.activeCaption);
 		contentPane.add(panel, BorderLayout.WEST);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[]{222, 0};
@@ -86,6 +90,7 @@ public class employee_details extends JFrame {
 		panel.setLayout(gbl_panel);
 		
 		JLabel lblMNhnVin = new JLabel("Mã nhân viên");
+		lblMNhnVin.setFont(new Font("Tahoma", Font.BOLD, 11));
 		GridBagConstraints gbc_lblMNhnVin = new GridBagConstraints();
 		gbc_lblMNhnVin.insets = new Insets(0, 0, 5, 0);
 		gbc_lblMNhnVin.gridx = 0;
@@ -93,6 +98,7 @@ public class employee_details extends JFrame {
 		panel.add(lblMNhnVin, gbc_lblMNhnVin);
 		
 		textField = new JTextField();
+		textField.setEditable(false);
 		GridBagConstraints gbc_textField = new GridBagConstraints();
 		gbc_textField.insets = new Insets(0, 0, 5, 0);
 		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
@@ -102,6 +108,7 @@ public class employee_details extends JFrame {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Tên nhân viên");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel.gridx = 0;
@@ -117,7 +124,8 @@ public class employee_details extends JFrame {
 		panel.add(textField_1, gbc_textField_1);
 		textField_1.setColumns(10);
 		
-		JLabel lblMNhHng = new JLabel("Mã nhà hàng");
+		JLabel lblMNhHng = new JLabel("Tên nhà hàng");
+		lblMNhHng.setFont(new Font("Tahoma", Font.BOLD, 11));
 		GridBagConstraints gbc_lblMNhHng = new GridBagConstraints();
 		gbc_lblMNhHng.insets = new Insets(0, 0, 5, 0);
 		gbc_lblMNhHng.gridx = 0;
@@ -139,13 +147,16 @@ public class employee_details extends JFrame {
 		comboBox.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 					try {
-						update_cb4(Integer.parseInt(comboBox.getSelectedItem().toString()));
+						ResultSet rs =ls.getByName(comboBox.getSelectedItem().toString());
+						rs.next();
+						update_cb4(Integer.parseInt(rs.getString("ma_nha_hang")));
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
 			}});
 		
 		JLabel lblId = new JLabel("ID");
+		lblId.setFont(new Font("Tahoma", Font.BOLD, 11));
 		GridBagConstraints gbc_lblId = new GridBagConstraints();
 		gbc_lblId.insets = new Insets(0, 0, 5, 0);
 		gbc_lblId.gridx = 0;
@@ -160,7 +171,9 @@ public class employee_details extends JFrame {
 		gbc_comboBox_4.gridy = 7;
 		panel.add(comboBox_4, gbc_comboBox_4);
 		try {
-			update_cb4(Integer.parseInt(comboBox.getSelectedItem().toString()));
+			ResultSet rs =ls.getByName(comboBox.getSelectedItem().toString());
+			rs.next();
+			update_cb4(Integer.parseInt(rs.getString("ma_nha_hang")));
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -168,6 +181,7 @@ public class employee_details extends JFrame {
 		}
 		
 		JLabel lblSCmnd = new JLabel("Số CMND");
+		lblSCmnd.setFont(new Font("Tahoma", Font.BOLD, 11));
 		GridBagConstraints gbc_lblSCmnd = new GridBagConstraints();
 		gbc_lblSCmnd.insets = new Insets(0, 0, 5, 0);
 		gbc_lblSCmnd.gridx = 0;
@@ -184,6 +198,7 @@ public class employee_details extends JFrame {
 		textField_2.setColumns(10);
 		
 		JLabel lblChcV = new JLabel("Chức vụ");
+		lblChcV.setFont(new Font("Tahoma", Font.BOLD, 11));
 		GridBagConstraints gbc_lblChcV = new GridBagConstraints();
 		gbc_lblChcV.insets = new Insets(0, 0, 5, 0);
 		gbc_lblChcV.gridx = 0;
@@ -200,6 +215,7 @@ public class employee_details extends JFrame {
 		panel.add(comboBox_1, gbc_comboBox_1);
 		
 		JLabel lblSNgyNgh = new JLabel("Số ngày nghỉ có phép");
+		lblSNgyNgh.setFont(new Font("Tahoma", Font.BOLD, 11));
 		GridBagConstraints gbc_lblSNgyNgh = new GridBagConstraints();
 		gbc_lblSNgyNgh.insets = new Insets(0, 0, 5, 0);
 		gbc_lblSNgyNgh.gridx = 0;
@@ -216,6 +232,7 @@ public class employee_details extends JFrame {
 		panel.add(comboBox_2, gbc_comboBox_2);
 		
 		JLabel lblSNgyNgh_1 = new JLabel("số ngày nghỉ không phép");
+		lblSNgyNgh_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		GridBagConstraints gbc_lblSNgyNgh_1 = new GridBagConstraints();
 		gbc_lblSNgyNgh_1.insets = new Insets(0, 0, 5, 0);
 		gbc_lblSNgyNgh_1.gridx = 0;
@@ -234,7 +251,7 @@ public class employee_details extends JFrame {
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				add();
+				btn_add();
 			}
 		});
 		GridBagConstraints gbc_btnAdd = new GridBagConstraints();
@@ -246,7 +263,7 @@ public class employee_details extends JFrame {
 		JButton btnEdit = new JButton("Edit");
 		btnEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				edit();
+				btn_edit();
 			}
 		});
 		GridBagConstraints gbc_btnEdit = new GridBagConstraints();
@@ -258,7 +275,7 @@ public class employee_details extends JFrame {
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				delete();
+				btn_delete();
 			}
 		});
 		GridBagConstraints gbc_btnDelete = new GridBagConstraints();
@@ -300,7 +317,7 @@ public class employee_details extends JFrame {
 		list_restaurant_db bd = new list_restaurant_db();
 		ResultSet rs = bd.get();
 		while (rs.next()){
-			comboBox.addItem(rs.getString("ma_nha_hang"));
+			comboBox.addItem(rs.getString("ten_nha_hang"));
 		}
 	}
 	private void update_cb4(int id) throws SQLException{
@@ -313,9 +330,12 @@ public class employee_details extends JFrame {
 	}
 	private void ObjectCreation(){
 		user = new nhan_vien();
-		user.setMa_nhan_vien(Integer.parseInt(textField.getText()));
+		if (textField.getText().isEmpty())
+			user.setMa_nhan_vien(0);
+		else
+			user.setMa_nhan_vien(Integer.parseInt(textField.getText()));
 		user.setTen_nhan_vien(textField_1.getText());
-		user.setID(Integer.parseInt(comboBox.getSelectedItem().toString()));
+		user.setID(Integer.parseInt(comboBox_4.getSelectedItem().toString()));
 		user.setId_num(Integer.parseInt(textField_2.getText()));
 		user.setChuc_vu(comboBox_1.getSelectedItem().toString());
 		user.setSo_ngay_nghi_co_phep(comboBox_2.getSelectedIndex());
@@ -325,17 +345,17 @@ public class employee_details extends JFrame {
 		result = db.get();
 		table.setModel(DbUtils.resultSetToTableModel(result));
 	}
-	private void add(){
+	private void btn_add(){
 		ObjectCreation();
 		db.insert(user);
 		tb_refresh();
 	}
-	private void edit(){
+	private void btn_edit(){
 		ObjectCreation();
 		db.update(user);
 		tb_refresh();
 	}
-	private void delete(){
+	private void btn_delete(){
 		ObjectCreation();
 		db.delete(user.getMa_nhan_vien());
 		tb_refresh();

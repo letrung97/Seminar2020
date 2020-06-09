@@ -20,18 +20,17 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import net.proteanit.sql.DbUtils;
 import model.danh_sach_nha_hang;
-import model.main_info;
-import dao.detail_restaurants_db;
 import dao.list_restaurant_db;
-import dao.tp_hcm_db;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 
-public class detail_restaurants extends JFrame {
-	main_info user = new main_info();
-	tp_hcm_db tp = new tp_hcm_db(); 
-	detail_restaurants_db db = new detail_restaurants_db();
+public class list_restaurants extends JFrame {
+	danh_sach_nha_hang user = new danh_sach_nha_hang();
+	list_restaurant_db db = new list_restaurant_db();
 	ResultSet result = null;
 	/**
 	 * 
@@ -40,9 +39,9 @@ public class detail_restaurants extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JComboBox<String> comboBox;
-	private JComboBox<String> comboBox_1;
 	private JTable table;
+	private JTextField textField_3;
+	private JComboBox<String> comboBox;
 
 	/**
 	 * Launch the application.
@@ -51,7 +50,7 @@ public class detail_restaurants extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					detail_restaurants frame = new detail_restaurants();
+					list_restaurants frame = new list_restaurants();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -63,7 +62,7 @@ public class detail_restaurants extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public detail_restaurants() {
+	public list_restaurants() {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Quản lý chuỗi nhà hàng");
 		setBounds(100, 100, 800, 500);
@@ -81,13 +80,14 @@ public class detail_restaurants extends JFrame {
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		JLabel lblId = new JLabel("ID");
-		lblId.setFont(new Font("Tahoma", Font.BOLD, 14));
-		GridBagConstraints gbc_lblId = new GridBagConstraints();
-		gbc_lblId.insets = new Insets(0, 0, 5, 0);
-		gbc_lblId.gridx = 0;
-		gbc_lblId.gridy = 1;
-		panel.add(lblId, gbc_lblId);
+		JLabel lblMNhHng = new JLabel("M\u00E3 nh\u00E0 h\u00E0ng");
+		lblMNhHng.setFont(new Font("Tahoma", Font.BOLD, 14));
+		GridBagConstraints gbc_lblMNhHng = new GridBagConstraints();
+		gbc_lblMNhHng.anchor = GridBagConstraints.SOUTH;
+		gbc_lblMNhHng.insets = new Insets(0, 0, 5, 0);
+		gbc_lblMNhHng.gridx = 0;
+		gbc_lblMNhHng.gridy = 1;
+		panel.add(lblMNhHng, gbc_lblMNhHng);
 		
 		textField = new JTextField();
 		GridBagConstraints gbc_textField = new GridBagConstraints();
@@ -98,14 +98,13 @@ public class detail_restaurants extends JFrame {
 		panel.add(textField, gbc_textField);
 		textField.setColumns(10);
 		
-		JLabel lblMNhHng = new JLabel("M\u00E3 nh\u00E0 h\u00E0ng");
-		lblMNhHng.setFont(new Font("Tahoma", Font.BOLD, 14));
-		GridBagConstraints gbc_lblMNhHng = new GridBagConstraints();
-		gbc_lblMNhHng.anchor = GridBagConstraints.SOUTH;
-		gbc_lblMNhHng.insets = new Insets(0, 0, 5, 0);
-		gbc_lblMNhHng.gridx = 0;
-		gbc_lblMNhHng.gridy = 3;
-		panel.add(lblMNhHng, gbc_lblMNhHng);
+		JLabel lblTnNhHng = new JLabel("T\u00EAn nh\u00E0 h\u00E0ng");
+		lblTnNhHng.setFont(new Font("Tahoma", Font.BOLD, 14));
+		GridBagConstraints gbc_lblTnNhHng = new GridBagConstraints();
+		gbc_lblTnNhHng.insets = new Insets(0, 0, 5, 0);
+		gbc_lblTnNhHng.gridx = 0;
+		gbc_lblTnNhHng.gridy = 3;
+		panel.add(lblTnNhHng, gbc_lblTnNhHng);
 		
 		textField_1 = new JTextField();
 		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
@@ -116,80 +115,80 @@ public class detail_restaurants extends JFrame {
 		panel.add(textField_1, gbc_textField_1);
 		textField_1.setColumns(10);
 		
-		JLabel lblIdQun = new JLabel("Tên quận");
-		lblIdQun.setFont(new Font("Tahoma", Font.BOLD, 14));
-		GridBagConstraints gbc_lblIdQun = new GridBagConstraints();
-		gbc_lblIdQun.insets = new Insets(0, 0, 5, 0);
-		gbc_lblIdQun.gridx = 0;
-		gbc_lblIdQun.gridy = 5;
-		panel.add(lblIdQun, gbc_lblIdQun);
+		JLabel lblLoiNhHng = new JLabel("Lo\u1EA1i nh\u00E0 h\u00E0ng");
+		lblLoiNhHng.setFont(new Font("Tahoma", Font.BOLD, 14));
+		GridBagConstraints gbc_lblLoiNhHng = new GridBagConstraints();
+		gbc_lblLoiNhHng.insets = new Insets(0, 0, 5, 0);
+		gbc_lblLoiNhHng.gridx = 0;
+		gbc_lblLoiNhHng.gridy = 5;
+		panel.add(lblLoiNhHng, gbc_lblLoiNhHng);
 		
 		comboBox = new JComboBox<String>();
-		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11", "Quận 12", "Quận Bình Tân", "Quận Bình Thạnh", "Quận Gò Vấp", "Quận Phú Nhuận", "Quận Tân Bình", "Quận Tân Phú", "Quận Thủ Đức", "Huyện Bình Chánh", "Huyện Cần Giờ", "Huyện Củ Chi", "Huyện Hóc Môn", "Huyện Nhà Bè"}));
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Đặt trước", "Trực tiếp"}));
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox.gridx = 0;
 		gbc_comboBox.gridy = 6;
 		panel.add(comboBox, gbc_comboBox);
-		comboBox.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent arg0) {
-				update_CB(comboBox.getSelectedIndex()+1);
-			}});
 		
-		JLabel lblTnPhng = new JLabel("Tên phường");
-		lblTnPhng.setFont(new Font("Tahoma", Font.BOLD, 14));
-		GridBagConstraints gbc_lblTnPhng = new GridBagConstraints();
-		gbc_lblTnPhng.insets = new Insets(0, 0, 5, 0);
-		gbc_lblTnPhng.gridx = 0;
-		gbc_lblTnPhng.gridy = 7;
-		panel.add(lblTnPhng, gbc_lblTnPhng);
+		JLabel lblSChiNhnh = new JLabel("S\u1ED1 chi nh\u00E1nh");
+		lblSChiNhnh.setFont(new Font("Tahoma", Font.BOLD, 14));
+		GridBagConstraints gbc_lblSChiNhnh = new GridBagConstraints();
+		gbc_lblSChiNhnh.insets = new Insets(0, 0, 5, 0);
+		gbc_lblSChiNhnh.gridx = 0;
+		gbc_lblSChiNhnh.gridy = 7;
+		panel.add(lblSChiNhnh, gbc_lblSChiNhnh);
 		
-		comboBox_1 = new JComboBox<String>();
-		GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
-		gbc_comboBox_1.insets = new Insets(0, 0, 5, 0);
-		gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_1.gridx = 0;
-		gbc_comboBox_1.gridy = 8;
-		panel.add(comboBox_1, gbc_comboBox_1);
+		textField_3 = new JTextField();
+		GridBagConstraints gbc_textField_3 = new GridBagConstraints();
+		gbc_textField_3.insets = new Insets(0, 0, 5, 0);
+		gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField_3.gridx = 0;
+		gbc_textField_3.gridy = 8;
+		panel.add(textField_3, gbc_textField_3);
+		textField_3.setColumns(10);
 		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				add(arg0);
 			}
 		});
 		GridBagConstraints gbc_btnAdd = new GridBagConstraints();
 		gbc_btnAdd.insets = new Insets(0, 0, 5, 0);
 		gbc_btnAdd.gridx = 0;
-		gbc_btnAdd.gridy = 10;
+		gbc_btnAdd.gridy = 11;
 		panel.add(btnAdd, gbc_btnAdd);
 		
 		JButton btnEdit = new JButton("Edit");
 		btnEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				edit(arg0);
 			}
 		});
 		GridBagConstraints gbc_btnEdit = new GridBagConstraints();
 		gbc_btnEdit.insets = new Insets(0, 0, 5, 0);
 		gbc_btnEdit.gridx = 0;
-		gbc_btnEdit.gridy = 11;
+		gbc_btnEdit.gridy = 12;
 		panel.add(btnEdit, gbc_btnEdit);
 		
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				delete(arg0);
 			}
 		});
 		GridBagConstraints gbc_btnDelete = new GridBagConstraints();
 		gbc_btnDelete.insets = new Insets(0, 0, 5, 0);
 		gbc_btnDelete.gridx = 0;
-		gbc_btnDelete.gridy = 12;
+		gbc_btnDelete.gridy = 13;
 		panel.add(btnDelete, gbc_btnDelete);
 		
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2, BorderLayout.NORTH);
 		
-		JLabel lblThngTinDanh = new JLabel("Danh sách địa chỉ nhà hàng");
+		JLabel lblThngTinDanh = new JLabel("Th\u00F4ng tin danh s\u00E1ch chu\u1ED7i nh\u00E0 h\u00E0ng");
 		panel_2.add(lblThngTinDanh);
 		lblThngTinDanh.setHorizontalAlignment(SwingConstants.CENTER);
 		lblThngTinDanh.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -199,13 +198,12 @@ public class detail_restaurants extends JFrame {
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
 			},
 			new String[] {
-				"M\u00E3 nh\u00E0 h\u00E0ng", "T\u00EAn nh\u00E0 h\u00E0ng", "S\u1ED1 chi nh\u00E1nh", "Lo\u1EA1i nh\u00E0 h\u00E0ng", "New column"
+				"M\u00E3 nh\u00E0 h\u00E0ng", "T\u00EAn nh\u00E0 h\u00E0ng", "S\u1ED1 chi nh\u00E1nh", "Lo\u1EA1i nh\u00E0 h\u00E0ng"
 			}
 		));
 		table.getColumnModel().getColumn(0).setPreferredWidth(76);
@@ -213,11 +211,54 @@ public class detail_restaurants extends JFrame {
 		table.getColumnModel().getColumn(2).setPreferredWidth(72);
 		table.getColumnModel().getColumn(3).setPreferredWidth(79);
 		contentPane.add(table, BorderLayout.CENTER);
+		table.addMouseListener(new java.awt.event.MouseAdapter() {
+	            public void mouseClicked(java.awt.event.MouseEvent evt) {
+	                tableMouseClicked(evt);
+	            }
+
+				private void tableMouseClicked(MouseEvent evt) {                    
+				       DefaultTableModel model = (DefaultTableModel)table.getModel();
+
+				       int selectedRowIndex = table.getSelectedRow();
+				       
+				       textField.setText(model.getValueAt(selectedRowIndex, 0).toString());
+				       textField_1.setText(model.getValueAt(selectedRowIndex, 1).toString());
+				       textField_3.setText(model.getValueAt(selectedRowIndex, 2).toString());
+				       if (model.getValueAt(selectedRowIndex, 3))
+				       comboBox.setSelectedItem(0);
+				        
+				    }
+					
+	        });
+		tb_refresh();
 	}
-	private void update_CB(int id){
-		ResultSet rs = tp.get(id);
-		for (int i = 0; i<rs.getFetchSize();i++){
-			
-		}
+	private void ObjectCreation(){
+		user = new danh_sach_nha_hang();
+		user.setMa_nha_hang(Integer.parseInt(textField.getText()));
+		user.setTen_nha_hang(textField_1.getText());
+		user.setSo_chi_nhanh(Integer.parseInt(textField_3.getText()));
+		if (comboBox.getSelectedIndex()==0)
+			user.setLoai_nha_hang(true);
+		else
+			user.setLoai_nha_hang(false);
+	}
+	private void tb_refresh(){
+		result = db.get();
+		table.setModel(DbUtils.resultSetToTableModel(result));
+	}
+	private void add(ActionEvent evt){
+		ObjectCreation();
+		db.insert(user);
+		tb_refresh();
+	}
+	private void edit(ActionEvent evt){
+		ObjectCreation();
+		db.update(user);
+		tb_refresh();
+	}
+	private void delete(ActionEvent evt){
+		ObjectCreation();
+		db.delete(user.getMa_nha_hang());
+		tb_refresh();
 	}
 }

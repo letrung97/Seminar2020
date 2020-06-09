@@ -8,6 +8,7 @@ public class danh_sach_nha_hang implements Serializable{
 	private String ten_nha_hang;
 	private int so_chi_nhanh;
 	private boolean loai_nha_hang;
+	private String type;
 	public int getMa_nha_hang() {
 		return ma_nha_hang;
 	}
@@ -32,5 +33,10 @@ public class danh_sach_nha_hang implements Serializable{
 	public void setLoai_nha_hang(boolean loai_nha_hang) {
 		this.loai_nha_hang = loai_nha_hang;
 	}
-
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 }

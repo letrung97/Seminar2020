@@ -1,0 +1,9 @@
+package dao;
+
+public class thuc_don_db {
+
+	public thuc_don_db() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -14,7 +14,7 @@
 		<item value="489" key="DIALOG_HEIGHT"/>
 	</section>
 	<section name="InferTypeArguments">
-		<item value="true" key="leaveUnconstrainedRaw"/>
-		<item value="true" key="assumeCloneReturnsSameType"/>
+		<item value="false" key="leaveUnconstrainedRaw"/>
+		<item value="false" key="assumeCloneReturnsSameType"/>
 	</section>
 </section>

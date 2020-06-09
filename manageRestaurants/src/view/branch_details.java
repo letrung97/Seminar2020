@@ -29,9 +29,12 @@ import dao.branch_details_db;
 import dao.detail_restaurants_db;
 import dao.list_restaurant_db;
 
+import java.awt.SystemColor;
+
 public class branch_details extends JFrame {
 	danh_sach_thong_tin user = new danh_sach_thong_tin();
 	branch_details_db db = new branch_details_db();
+	list_restaurant_db ls = new list_restaurant_db();
 	ResultSet result = null;
 	/**
 	 * 
@@ -75,6 +78,7 @@ public class branch_details extends JFrame {
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(SystemColor.activeCaption);
 		contentPane.add(panel, BorderLayout.WEST);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[]{222, 0};
@@ -86,25 +90,25 @@ public class branch_details extends JFrame {
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				delete();
+				btn_delete();
 			}
 		});
 		
 		JButton btnEdit = new JButton("Edit");
 		btnEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				edit();
+				btn_edit();
 			}
 		});
 		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				add();
+				btn_add();
 			}
 		});
 		
-		JLabel lblMNhHng = new JLabel("Mã nhà hàng");
+		JLabel lblMNhHng = new JLabel("Tên nhà hàng");
 		lblMNhHng.setFont(new Font("Tahoma", Font.BOLD, 14));
 		GridBagConstraints gbc_lblMNhHng = new GridBagConstraints();
 		gbc_lblMNhHng.insets = new Insets(0, 0, 5, 0);
@@ -127,7 +131,9 @@ public class branch_details extends JFrame {
 		comboBox_1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 					try {
-						update_cb4(Integer.parseInt(comboBox_1.getSelectedItem().toString()));
+						ResultSet rs =ls.getByName(comboBox_1.getSelectedItem().toString());
+						rs.next();
+						update_cb4(Integer.parseInt(rs.getString("ma_nha_hang")));
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -148,7 +154,9 @@ public class branch_details extends JFrame {
 		gbc_comboBox_2.gridy = 4;
 		panel.add(comboBox_2, gbc_comboBox_2);
 		try {
-			update_cb4(Integer.parseInt(comboBox_1.getSelectedItem().toString()));
+			ResultSet rs =ls.getByName(comboBox_1.getSelectedItem().toString());
+			rs.next();
+			update_cb4(Integer.parseInt(rs.getString("ma_nha_hang")));
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -264,7 +272,7 @@ public class branch_details extends JFrame {
 		list_restaurant_db bd = new list_restaurant_db();
 		ResultSet rs = bd.get();
 		while (rs.next()){
-			comboBox_1.addItem(rs.getString("ma_nha_hang"));
+			comboBox_1.addItem(rs.getString("ten_nha_hang"));
 		}
 	}
 	private void update_cb4(int id) throws SQLException{
@@ -290,17 +298,17 @@ public class branch_details extends JFrame {
 		result = db.get();
 		table.setModel(DbUtils.resultSetToTableModel(result));
 	}
-	private void add(){
+	private void btn_add(){
 		ObjectCreation();
 		db.insert(user);
 		tb_refresh();
 	}
-	private void edit(){
+	private void btn_edit(){
 		ObjectCreation();
 		db.update(user);
 		tb_refresh();
 	}
-	private void delete(){
+	private void btn_delete(){
 		ObjectCreation();
 		db.delete(user.getID());
 		tb_refresh();

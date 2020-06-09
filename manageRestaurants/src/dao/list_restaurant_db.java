@@ -19,10 +19,11 @@ public class list_restaurant_db {
 	public void insert(danh_sach_nha_hang user){
 		try {
 			String insertQuery = "insert into danh_sach_nha_hang"
-					+ "(ten_nha_hang, so_chi_nhanh,loai_nha_hang)"
-					+ " values('" + user.getTen_nha_hang() //+ "'"
+					+ "(ten_nha_hang, so_chi_nhanh,loai_nha_hang,loai_nha_hang_str"
+					+ " values('" + user.getTen_nha_hang() + "'"
 					+ "," + user.getSo_chi_nhanh()
 					+ "," + user.isLoai_nha_hang()
+					+ "," + user.getType() + "'"
 					+ ")";
 			statement = conn.prepareStatement(insertQuery);
 			statement.execute();
@@ -47,7 +48,8 @@ public class list_restaurant_db {
 			String updateQuery = "update danh_sach_nha_hang set "
 					+ "ten_nha_hang = '" + user.getTen_nha_hang() + "'" + ","
 					+ "so_chi_nhanh = " + user.getSo_chi_nhanh() + ","
-					+ "loai_nha_hang = " + user.isLoai_nha_hang() 
+					+ "loai_nha_hang = " + user.isLoai_nha_hang() + ","
+					+ "loai_nha_hang_str = '" + user.getType()  + "' "
 					+ "where ma_nha_hang = " + user.getMa_nha_hang();
 			statement = conn.prepareStatement(updateQuery);
 			statement.execute();
@@ -70,7 +72,7 @@ public class list_restaurant_db {
 	}
 	public ResultSet get(){
 		try {
-			String query= "select * from danh_sach_nha_hang";
+			String query= "select ma_nha_hang,ten_nha_hang,so_chi_nhanh,loai_nha_hang_str from danh_sach_nha_hang";
 			statement = conn.prepareStatement(query);
 			result = statement.executeQuery();
 		} catch (SQLException ex){
