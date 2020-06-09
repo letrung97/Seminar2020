@@ -8,6 +8,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -35,6 +36,7 @@ public class employee_details extends JFrame {
 	nhan_vien user = new nhan_vien();
 	employee_details_db db = new employee_details_db();
 	list_restaurant_db ls = new list_restaurant_db();
+	detail_restaurants_db in = new detail_restaurants_db();
 	ResultSet result = null;
 	/**
 	 * 
@@ -303,14 +305,36 @@ public class employee_details extends JFrame {
 				{null, null, null, null, null},
 			},
 			new String[] {
-				"M\u00E3 nh\u00E0 h\u00E0ng", "T\u00EAn nh\u00E0 h\u00E0ng", "S\u1ED1 chi nh\u00E1nh", "Lo\u1EA1i nh\u00E0 h\u00E0ng", "New column"
 			}
 		));
-		table.getColumnModel().getColumn(0).setPreferredWidth(76);
-		table.getColumnModel().getColumn(1).setPreferredWidth(108);
-		table.getColumnModel().getColumn(2).setPreferredWidth(72);
-		table.getColumnModel().getColumn(3).setPreferredWidth(79);
 		contentPane.add(table, BorderLayout.CENTER);
+		table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+
+			private void tableMouseClicked(MouseEvent evt) {                    
+			       DefaultTableModel model = (DefaultTableModel)table.getModel();
+
+			       int selectedRowIndex = table.getSelectedRow();
+			       
+			       textField.setText(model.getValueAt(selectedRowIndex, 0).toString());
+			       textField_1.setText(model.getValueAt(selectedRowIndex, 2).toString());
+			       textField_2.setText(model.getValueAt(selectedRowIndex, 3).toString());
+			       comboBox_2.setSelectedItem(model.getValueAt(selectedRowIndex, 5).toString());
+			       comboBox_3.setSelectedItem(model.getValueAt(selectedRowIndex, 6).toString());
+			       comboBox_1.setSelectedItem(model.getValueAt(selectedRowIndex, 4).toString());
+			       ResultSet rs = in.getBy(Integer.parseInt(model.getValueAt(selectedRowIndex, 1).toString()));
+			       try {
+			    	   rs.next();
+			    	   comboBox.setSelectedItem(rs.getString("ten_nha_hang"));
+			    	   comboBox_4.setSelectedItem(rs.getString("ID"));
+			       } catch (SQLException e) {
+			    	   e.printStackTrace();
+			       }
+			    }
+				
+        });
 		tb_refresh();
 	}
 	private void update_cb() throws SQLException{

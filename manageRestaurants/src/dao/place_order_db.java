@@ -19,12 +19,13 @@ public class place_order_db {
 	public void insert(don_dat user){
 		try {
 			String insertQuery = "insert into don_dat"
-					+ "(ten_khach_hang, ngay_dat, ma_nha_hang, so_ban_dat, ID)"
+					+ "(ten_khach_hang, ngay_dat, ma_nha_hang, so_ban_dat, ID,ten_nha_hang)"
 					+ " values('" + user.getTen_khach_hang() + "'"
 					+ ",'" + user.getNgay_dat() + "'"
 					+ "," + user.getMa_nha_hang()
 					+ "," + user.getSo_ban_dat()
 					+ "," + user.getID()
+					+ ",'" + user.getTen_nha_hang() + "'"
 					+ ")";
 			statement = conn.prepareStatement(insertQuery);
 			statement.execute();
@@ -47,12 +48,13 @@ public class place_order_db {
 	public void update(don_dat user){
 		try {
 			String updateQuery = "update don_dat set "
-					+ "ten_khach_hang = '" + user.getTen_khach_hang() + "'" + ","
-					+ "ngay_dat = " + user.getNgay_dat() + ","
+					+ "ten_khach_hang = '" + user.getTen_khach_hang() + "',"
+					+ "ten_nha_hang = '" + user.getTen_nha_hang() + "',"
+					+ "ngay_dat = '" + user.getNgay_dat() + "',"
 					+ "ma_nha_hang = " + user.getMa_nha_hang() + ","
 					+ "so_ban_dat = " + user.getSo_ban_dat() + ","
 					+ "ID = " + user.getID()
-					+ "where ma_don = " + user.getMa_don();
+					+ " where ma_don = " + user.getMa_don();
 			statement = conn.prepareStatement(updateQuery);
 			statement.execute();
 			JOptionPane.showMessageDialog(null, "Updated");
@@ -74,7 +76,7 @@ public class place_order_db {
 	}
 	public ResultSet get(){
 		try {
-			String query= "select ma_don,ten_khach_hang,date_format(ngay_dat,'%d/%m/%Y') ngay_dat,ma_nha_hang,so_ban_dat,ID from don_dat";
+			String query= "select ma_don,ten_khach_hang,ngay_dat ngay_dat,ten_nha_hang,ID,so_ban_dat from don_dat";
 			statement = conn.prepareStatement(query);
 			result = statement.executeQuery();
 		} catch (SQLException ex){

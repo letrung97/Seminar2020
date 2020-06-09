@@ -19,18 +19,22 @@ public class branch_details_db {
 	public void insert(danh_sach_thong_tin user){
 		try {
 			String insertQuery = "insert into danh_sach_thong_tin"
-					+ "(quan_ly, so_nhan_cong, so_ban, trang_thai)"
+					+ "(quan_ly, so_nhan_cong, so_ban, trang_thai,state,ID)"
 					+ " values('" + user.getQuan_ly() + "'"
 					+ "," + user.getSo_nhan_cong()
 					+ "," + user.getSo_ban()
 					+ "," + user.isTrang_thai()
+					+ ",'" + user.getState() + "'"
+					+ "," + user.getID()
 					+ ")";
 			statement = conn.prepareStatement(insertQuery);
 			statement.execute();
 			JOptionPane.showMessageDialog(null, "Inserted");
-		} catch (SQLException ex){
+		} 
+		catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());
-		} finally {
+		} 
+		finally {
 			flushStatementOnly();
 		}
 	}
@@ -46,11 +50,12 @@ public class branch_details_db {
 	public void update(danh_sach_thong_tin user){
 		try {
 			String updateQuery = "update danh_sach_thong_tin set "
-					+ "quan_ly = '" + user.getQuan_ly() + "'" + ","
+					+ "quan_ly = '" + user.getQuan_ly() + "',"
+					+ "state = '" + user.getState() + "',"
 					+ "so_nhan_cong = " + user.getSo_nhan_cong() + ","
 					+ "so_ban = " + user.getSo_ban() + ","
 					+ "trang_thai = " + user.isTrang_thai()
-					+ "where ID = " + user.getID();
+					+ " where ID = " + user.getID();
 			statement = conn.prepareStatement(updateQuery);
 			statement.execute();
 			JOptionPane.showMessageDialog(null, "Updated");
@@ -72,7 +77,7 @@ public class branch_details_db {
 	}
 	public ResultSet get(){
 		try {
-			String query= "select * from danh_sach_thong_tin";
+			String query= "select ID, quan_ly, so_nhan_cong, so_ban, state from danh_sach_thong_tin";
 			statement = conn.prepareStatement(query);
 			result = statement.executeQuery();
 		} catch (SQLException ex){

@@ -208,13 +208,8 @@ public class list_restaurants extends JFrame {
 				{null, null, null, null},
 			},
 			new String[] {
-				"M\u00E3 nh\u00E0 h\u00E0ng", "T\u00EAn nh\u00E0 h\u00E0ng", "S\u1ED1 chi nh\u00E1nh", "Lo\u1EA1i nh\u00E0 h\u00E0ng"
 			}
 		));
-		table.getColumnModel().getColumn(0).setPreferredWidth(76);
-		table.getColumnModel().getColumn(1).setPreferredWidth(108);
-		table.getColumnModel().getColumn(2).setPreferredWidth(72);
-		table.getColumnModel().getColumn(3).setPreferredWidth(79);
 		contentPane.add(table, BorderLayout.CENTER);
 		table.addMouseListener(new java.awt.event.MouseAdapter() {
 	            public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -52,9 +52,9 @@ public class employee_details_db {
 					+ "ten_nhan_vien = '" + user.getTen_nhan_vien() + "'" + ","
 					+ "id_num = " + user.getId_num() + ","
 					+ "chuc_vu = '" + user.getChuc_vu() + "'" + ","
-					+ "so_ngay_nghi_co phep = " + user.getSo_ngay_nghi_co_phep() + ","
-					+ "so_ngay_nghi_khong phep = " + user.getSo_ngay_nghi_khong_phep() 
-					+ "where ma_nha_vien = " + user.getMa_nhan_vien();
+					+ "so_ngay_nghi_co_phep = " + user.getSo_ngay_nghi_co_phep() + ","
+					+ "so_ngay_nghi_khong_phep = " + user.getSo_ngay_nghi_khong_phep() 
+					+ " where ma_nhan_vien = " + user.getMa_nhan_vien();
 			statement = conn.prepareStatement(updateQuery);
 			statement.execute();
 			JOptionPane.showMessageDialog(null, "Updated");

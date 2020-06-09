@@ -9,9 +9,16 @@ public class danh_sach_thong_tin implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private int ID;
 	private String quan_ly;
+	private String state;
 	private int so_nhan_cong;
 	private int so_ban;
 	private boolean trang_thai;
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 	public int getID() {
 		return ID;
 	}

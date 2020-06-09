@@ -9,6 +9,13 @@ public class don_dat  implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private int ma_don;
 	private String ten_khach_hang;
+	private String ten_nha_hang;
+	public String getTen_nha_hang() {
+		return ten_nha_hang;
+	}
+	public void setTen_nha_hang(String ten_nha_hang) {
+		this.ten_nha_hang = ten_nha_hang;
+	}
 	private String ngay_dat;
 	private int ma_nha_hang;
 	private int so_ban_dat;

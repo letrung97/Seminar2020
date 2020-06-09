@@ -54,7 +54,7 @@ public class detail_restaurants_db {
 					+ "ten_quan = '" + user.getTen_quan() + "'" + ","
 					+ "ten_phuong = '" + user.getTen_phuong() + "'" + ","
 					+ "ten_nha_hang = '" + user.getTen_nha_hang() + "'"
-					+ "where ID = " + user.getID();
+					+ " where ID = " + user.getID();
 			statement = conn.prepareStatement(updateQuery);
 			statement.execute();
 			JOptionPane.showMessageDialog(null, "Updated");
@@ -95,6 +95,16 @@ public class detail_restaurants_db {
 	public ResultSet getById(int id) {
 		try {
 			String query= "select ID from main_info where ma_nha_hang = " + id;
+			statement = conn.prepareStatement(query);
+			result = statement.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	public ResultSet getBy(int id) {
+		try {
+			String query= "select ten_nha_hang,ID from main_info where ID = " + id;
 			statement = conn.prepareStatement(query);
 			result = statement.executeQuery();
 		} catch (SQLException e) {

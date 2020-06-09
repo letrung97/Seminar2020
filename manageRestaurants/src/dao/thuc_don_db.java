@@ -48,7 +48,7 @@ public class thuc_don_db {
 					+ "ten_khach_hang = '" + user.getMa_nha_hang() + "'" + ","
 					+ "ten_mon = '" + user.getTen_mon() + "',"
 					+ "gia = " + user.getGia()
-					+ "where stt = " + user.getStt();
+					+ " where stt = " + user.getStt();
 			statement = conn.prepareStatement(updateQuery);
 			statement.execute();
 			JOptionPane.showMessageDialog(null, "Updated");

@@ -8,6 +8,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -35,6 +36,7 @@ public class branch_details extends JFrame {
 	danh_sach_thong_tin user = new danh_sach_thong_tin();
 	branch_details_db db = new branch_details_db();
 	list_restaurant_db ls = new list_restaurant_db();
+	detail_restaurants_db in = new detail_restaurants_db();
 	ResultSet result = null;
 	/**
 	 * 
@@ -216,7 +218,7 @@ public class branch_details extends JFrame {
 		
 		comboBox = new JComboBox<String>();
 		comboBox.setFont(new Font("Tahoma", Font.BOLD, 14));
-		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Trạng thái", "hoạt động", "đóng cửa"}));
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Trạng thái", "Hoạt động", "Đóng cửa"}));
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -258,14 +260,36 @@ public class branch_details extends JFrame {
 				{null, null, null, null},
 			},
 			new String[] {
-				"M\u00E3 nh\u00E0 h\u00E0ng", "T\u00EAn nh\u00E0 h\u00E0ng", "S\u1ED1 chi nh\u00E1nh", "Lo\u1EA1i nh\u00E0 h\u00E0ng"
 			}
 		));
-		table.getColumnModel().getColumn(0).setPreferredWidth(76);
-		table.getColumnModel().getColumn(1).setPreferredWidth(108);
-		table.getColumnModel().getColumn(2).setPreferredWidth(72);
-		table.getColumnModel().getColumn(3).setPreferredWidth(79);
 		contentPane.add(table, BorderLayout.CENTER);
+		table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+
+			private void tableMouseClicked(MouseEvent evt) {                    
+			       DefaultTableModel model = (DefaultTableModel)table.getModel();
+
+			       int selectedRowIndex = table.getSelectedRow();
+			       textField_1.setText(model.getValueAt(selectedRowIndex, 1).toString());
+			       textField_2.setText(model.getValueAt(selectedRowIndex, 2).toString());
+			       textField_3.setText(model.getValueAt(selectedRowIndex, 3).toString());
+			       ResultSet rs = in.getBy(Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString()));
+			       try {
+			    	   rs.next();
+			    	   comboBox_1.setSelectedItem(rs.getString("ten_nha_hang"));
+			    	   comboBox_2.setSelectedItem(rs.getString("ID"));
+			       } catch (SQLException e) {
+			    	   e.printStackTrace();
+			       }
+			       if (model.getValueAt(selectedRowIndex, 4).equals("Hoạt động"))
+			    	   comboBox.setSelectedIndex(1);
+			       else if (model.getValueAt(selectedRowIndex, 4).equals("Đóng cửa"))
+			    	   comboBox.setSelectedIndex(2);
+			    }
+				
+        });
 		tb_refresh();
 	}
 	private void update_cb() throws SQLException{
@@ -285,14 +309,18 @@ public class branch_details extends JFrame {
 	}
 	private void ObjectCreation(){
 		user = new danh_sach_thong_tin();
-		user.setID(Integer.parseInt(comboBox_1.getSelectedItem().toString()));
+		user.setID(Integer.parseInt(comboBox_2.getSelectedItem().toString()));
 		user.setQuan_ly(textField_1.getText());
 		user.setSo_nhan_cong(Integer.parseInt(textField_2.getText()));
 		user.setSo_ban(Integer.parseInt(textField_3.getText()));
-		if (comboBox.getSelectedIndex()==1)
+		if (comboBox.getSelectedIndex()==1){
 			user.setTrang_thai(true);
-		else if (comboBox.getSelectedIndex()==2)
+			user.setState("Hoạt động");
+		}
+		else if (comboBox.getSelectedIndex()==2){
 			user.setTrang_thai(false);
+			user.setState("Đóng cửa");
+		}
 	}
 	private void tb_refresh(){
 		result = db.get();

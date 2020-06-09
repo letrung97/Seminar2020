@@ -2,18 +2,21 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="danh_sach_thong_tin" key="selection"/>
+		<item value="thuc_don" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="don_dat"/>
+			<item value="ma_don"/>
 			<item value="main_info"/>
 			<item value="danh_sach_nha_hang"/>
-			<item value="ma_don"/>
-			<item value="don_dat"/>
 		</list>
 		<list key="replacehistory">
+			<item value="thuc_don"/>
+			<item value="stt"/>
+			<item value=""/>
 			<item value="danh_sach_thong_tin"/>
 			<item value="main_info"/>
 			<item value="ma_nha_vien"/>

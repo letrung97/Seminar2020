@@ -6,12 +6,13 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -28,7 +29,6 @@ import net.proteanit.sql.DbUtils;
 import dao.detail_restaurants_db;
 import dao.list_restaurant_db;
 import dao.place_order_db;
-import java.awt.SystemColor;
 
 public class place_order extends JFrame {
 	don_dat user = new don_dat();
@@ -82,9 +82,9 @@ public class place_order extends JFrame {
 		contentPane.add(panel, BorderLayout.WEST);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[]{222, 0};
-		gbl_panel.rowHeights = new int[]{17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel.rowHeights = new int[]{17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_panel.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		JLabel label = new JLabel("Mã đơn");
@@ -167,17 +167,42 @@ public class place_order extends JFrame {
 						ResultSet rs =ls.getByName(comboBox.getSelectedItem().toString());
 						rs.next();
 						update_LS(rs.getInt("ma_nha_hang"));
+						rs.close();
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
 			}});
+		
+		JLabel lblIdNhHng = new JLabel("ID nhà hàng");
+		lblIdNhHng.setFont(new Font("Tahoma", Font.BOLD, 14));
+		GridBagConstraints gbc_lblIdNhHng = new GridBagConstraints();
+		gbc_lblIdNhHng.insets = new Insets(0, 0, 5, 0);
+		gbc_lblIdNhHng.gridx = 0;
+		gbc_lblIdNhHng.gridy = 9;
+		panel.add(lblIdNhHng, gbc_lblIdNhHng);
+		
+		comboBox_1 = new JComboBox<String>();
+		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
+		gbc_comboBox_1.insets = new Insets(0, 0, 5, 0);
+		gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBox_1.gridx = 0;
+		gbc_comboBox_1.gridy = 10;
+		panel.add(comboBox_1, gbc_comboBox_1);
+		try {
+			ResultSet rs =ls.getByName(comboBox.getSelectedItem().toString());
+			rs.next();
+			update_LS(rs.getInt("ma_nha_hang"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		JLabel lblSBnt = new JLabel("Số bàn đặt");
 		lblSBnt.setFont(new Font("Tahoma", Font.BOLD, 14));
 		GridBagConstraints gbc_lblSBnt = new GridBagConstraints();
 		gbc_lblSBnt.insets = new Insets(0, 0, 5, 0);
 		gbc_lblSBnt.gridx = 0;
-		gbc_lblSBnt.gridy = 9;
+		gbc_lblSBnt.gridy = 11;
 		panel.add(lblSBnt, gbc_lblSBnt);
 		
 		textField_2 = new JTextField();
@@ -185,27 +210,9 @@ public class place_order extends JFrame {
 		gbc_textField_2.insets = new Insets(0, 0, 5, 0);
 		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textField_2.gridx = 0;
-		gbc_textField_2.gridy = 10;
+		gbc_textField_2.gridy = 12;
 		panel.add(textField_2, gbc_textField_2);
 		textField_2.setColumns(10);
-		
-		JLabel lblIdNhHng = new JLabel("ID nhà hàng");
-		lblIdNhHng.setFont(new Font("Tahoma", Font.BOLD, 14));
-		GridBagConstraints gbc_lblIdNhHng = new GridBagConstraints();
-		gbc_lblIdNhHng.insets = new Insets(0, 0, 5, 0);
-		gbc_lblIdNhHng.gridx = 0;
-		gbc_lblIdNhHng.gridy = 11;
-		panel.add(lblIdNhHng, gbc_lblIdNhHng);
-		
-		comboBox_1 = new JComboBox<String>();
-		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		comboBox_1.setModel(new DefaultComboBoxModel<String>(new String[] {"chọn nhà hàng"}));
-		GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
-		gbc_comboBox_1.insets = new Insets(0, 0, 5, 0);
-		gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_1.gridx = 0;
-		gbc_comboBox_1.gridy = 13;
-		panel.add(comboBox_1, gbc_comboBox_1);
 		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
@@ -262,14 +269,28 @@ public class place_order extends JFrame {
 				{null, null, null, null},
 			},
 			new String[] {
-				"M\u00E3 nh\u00E0 h\u00E0ng", "T\u00EAn nh\u00E0 h\u00E0ng", "S\u1ED1 chi nh\u00E1nh", "Lo\u1EA1i nh\u00E0 h\u00E0ng"
 			}
 		));
-		table.getColumnModel().getColumn(0).setPreferredWidth(76);
-		table.getColumnModel().getColumn(1).setPreferredWidth(108);
-		table.getColumnModel().getColumn(2).setPreferredWidth(72);
-		table.getColumnModel().getColumn(3).setPreferredWidth(79);
 		contentPane.add(table, BorderLayout.CENTER);
+		table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+
+			private void tableMouseClicked(MouseEvent evt) {                    
+			       DefaultTableModel model = (DefaultTableModel)table.getModel();
+
+			       int selectedRowIndex = table.getSelectedRow();
+			       
+			       textField.setText(model.getValueAt(selectedRowIndex, 0).toString());
+			       textField_1.setText(model.getValueAt(selectedRowIndex, 1).toString());
+			       textField_4.setText(model.getValueAt(selectedRowIndex, 2).toString());
+			       textField_2.setText(model.getValueAt(selectedRowIndex, 5).toString());
+			       comboBox.setSelectedItem(model.getValueAt(selectedRowIndex, 3).toString());
+			       comboBox_1.setSelectedItem(model.getValueAt(selectedRowIndex, 4).toString());
+			    }
+				
+        });
 		tb_refresh();
 	}
 	private void update_CB() throws SQLException{
@@ -288,12 +309,23 @@ public class place_order extends JFrame {
 	}
 	private void ObjectCreation(){
 		user = new don_dat();
-		user.setMa_don(Integer.parseInt(textField.getText()));
+		if (textField.getText().isEmpty())
+			user.setMa_don(0);
+		else
+			user.setMa_don(Integer.parseInt(textField.getText()));
 		user.setNgay_dat(textField_4.getText());//dd-mm-yyyy
 		user.setSo_ban_dat(Integer.parseInt(textField_2.getText()));
 		user.setTen_khach_hang(textField_1.getText());
-		user.setID(Integer.parseInt(comboBox_1.getSelectedItem().toString()));
-		user.setMa_nha_hang(Integer.parseInt(comboBox.getSelectedItem().toString()));
+		user.setID(Integer.parseInt(comboBox_1.getSelectedItem().toString()));		
+		user.setTen_nha_hang(comboBox.getSelectedItem().toString());
+		ResultSet rs =ls.getByName(comboBox.getSelectedItem().toString());
+		try {
+			rs.next();
+			user.setMa_nha_hang(rs.getInt("ma_nha_hang"));
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	private void tb_refresh(){
 		result = db.get();

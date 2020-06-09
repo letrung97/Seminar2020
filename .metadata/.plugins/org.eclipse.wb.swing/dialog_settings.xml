@@ -4,13 +4,13 @@
 		<item value="428" key="x"/>
 		<item value="504" key="width"/>
 		<item value="111" key="y"/>
-		<item value="505" key="height"/>
+		<item value="506" key="height"/>
 	</section>
 	<section name="org.eclipse.wb.internal.swing.model.property.editor.border.BorderDialog">
 		<item value="439" key="x"/>
 		<item value="482" key="width"/>
 		<item value="174" key="y"/>
-		<item value="380" key="height"/>
+		<item value="381" key="height"/>
 	</section>
 	<section name="org.eclipse.wb.internal.swing.laf.ui.AddCustomLookAndFeelDialog">
 		<item value="376" key="x"/>
@@ -22,7 +22,7 @@
 		<item value="231" key="x"/>
 		<item value="476" key="width"/>
 		<item value="162" key="y"/>
-		<item value="364" key="height"/>
+		<item value="365" key="height"/>
 	</section>
 	<section name="org.eclipse.wb.internal.swing.model.property.editor.icon.IconPropertyEditor$ImageDialog">
 		<item value="257" key="x"/>
