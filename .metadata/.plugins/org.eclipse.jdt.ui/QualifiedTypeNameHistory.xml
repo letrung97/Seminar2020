@@ -24,7 +24,6 @@
 <fullyQualifiedTypeName name="dao.tp_hcm_db"/>
 <fullyQualifiedTypeName name="dao.place_order_db"/>
 <fullyQualifiedTypeName name="model.don_dat"/>
-<fullyQualifiedTypeName name="dao.detail_restaurants_db"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="model.danh_sach_thong_tin"/>
@@ -32,4 +31,5 @@
 <fullyQualifiedTypeName name="dao.employee_details_db"/>
 <fullyQualifiedTypeName name="dao.branch_details_db"/>
 <fullyQualifiedTypeName name="dao.list_restaurant_db"/>
+<fullyQualifiedTypeName name="dao.detail_restaurants_db"/>
 </qualifiedTypeNameHistroy>
