@@ -243,11 +243,11 @@ public class list_restaurants extends JFrame {
 		user.setSo_chi_nhanh(Integer.parseInt(textField_3.getText()));
 		if (comboBox.getSelectedIndex()==0){
 			user.setLoai_nha_hang(true);
-			user.setType("Trực tiếp");
+			user.setType("Đặt trước");
 		}
 		else{
 			user.setLoai_nha_hang(false);
-			user.setType("Đặt trước");
+			user.setType("Trực tiếp");
 		}
 	}
 	private void tb_refresh(){

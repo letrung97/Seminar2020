@@ -1,9 +1,0 @@
-package dao;
-
-public class employee_details {
-
-	public employee_details() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

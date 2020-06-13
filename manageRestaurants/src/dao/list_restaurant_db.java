@@ -19,15 +19,15 @@ public class list_restaurant_db {
 	public void insert(danh_sach_nha_hang user){
 		try {
 			String insertQuery = "insert into danh_sach_nha_hang"
-					+ "(ten_nha_hang, so_chi_nhanh,loai_nha_hang,loai_nha_hang_str"
+					+ "(ten_nha_hang, so_chi_nhanh,loai_nha_hang,loai_nha_hang_str)"
 					+ " values('" + user.getTen_nha_hang() + "'"
 					+ "," + user.getSo_chi_nhanh()
 					+ "," + user.isLoai_nha_hang()
-					+ "," + user.getType() + "'"
+					+ ",'" + user.getType() + "'"
 					+ ")";
 			statement = conn.prepareStatement(insertQuery);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Inserted");
+			//JOptionPane.showMessageDialog(null, "Inserted");
 		} catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());
 		} finally {
@@ -53,7 +53,7 @@ public class list_restaurant_db {
 					+ "where ma_nha_hang = " + user.getMa_nha_hang();
 			statement = conn.prepareStatement(updateQuery);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Updated");
+			//JOptionPane.showMessageDialog(null, "Updated");
 		}
 		catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());
@@ -61,10 +61,12 @@ public class list_restaurant_db {
 	}
 	public void delete(int id){
 		try {
+			detail_restaurants_db dr = new detail_restaurants_db();
+			dr.deleteByID(id);
 			String query= "delete from danh_sach_nha_hang where ma_nha_hang = " + id;
 			statement = conn.prepareStatement(query);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Deleted");
+			//JOptionPane.showMessageDialog(null, "Deleted");
 		}
 		catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());

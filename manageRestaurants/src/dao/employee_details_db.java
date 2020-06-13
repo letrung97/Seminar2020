@@ -29,7 +29,7 @@ public class employee_details_db {
 					+ ")";
 			statement = conn.prepareStatement(insertQuery);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Inserted");
+			//JOptionPane.showMessageDialog(null, "Inserted");
 		} catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());
 		} finally {
@@ -57,7 +57,7 @@ public class employee_details_db {
 					+ " where ma_nhan_vien = " + user.getMa_nhan_vien();
 			statement = conn.prepareStatement(updateQuery);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Updated");
+			//JOptionPane.showMessageDialog(null, "Updated");
 		}
 		catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());
@@ -68,7 +68,7 @@ public class employee_details_db {
 			String query= "delete from nhan_vien where ma_nha_vien = " + id;
 			statement = conn.prepareStatement(query);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Deleted");
+			//JOptionPane.showMessageDialog(null, "Deleted");
 		}
 		catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());
@@ -90,6 +90,17 @@ public class employee_details_db {
 			result.close();
 		} catch (SQLException ex) {
 			System.err.print(ex.toString() + " >> CLOSING DB");
+		}
+	}
+	public void deleteByID(int id){
+		try {
+			String query= "delete from nhan_vien where ID = " + id + " limit 10";
+			statement = conn.prepareStatement(query);
+			statement.execute();
+			//JOptionPane.showMessageDialog(null, "Deleted");
+		}
+		catch (SQLException ex){
+			JOptionPane.showMessageDialog(null, ex.toString());
 		}
 	}
 }

@@ -29,7 +29,7 @@ public class place_order_db {
 					+ ")";
 			statement = conn.prepareStatement(insertQuery);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Inserted");
+			//JOptionPane.showMessageDialog(null, "Inserted");
 		} catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());
 		} finally {
@@ -57,7 +57,7 @@ public class place_order_db {
 					+ " where ma_don = " + user.getMa_don();
 			statement = conn.prepareStatement(updateQuery);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Updated");
+			//JOptionPane.showMessageDialog(null, "Updated");
 		}
 		catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());
@@ -68,7 +68,18 @@ public class place_order_db {
 			String query= "delete from don_dat where ma_don = " + id;
 			statement = conn.prepareStatement(query);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Deleted");
+			//JOptionPane.showMessageDialog(null, "Deleted");
+		}
+		catch (SQLException ex){
+			JOptionPane.showMessageDialog(null, ex.toString());
+		}
+	}
+	public void deleteByID(int id){
+		try {
+			String query= "delete from don_dat where ID = " + id + " limit 10";
+			statement = conn.prepareStatement(query);
+			statement.execute();
+			//JOptionPane.showMessageDialog(null, "Deleted");
 		}
 		catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());

@@ -1,9 +1,0 @@
-package view;
-
-public class branch_details_db {
-
-	public branch_details_db() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

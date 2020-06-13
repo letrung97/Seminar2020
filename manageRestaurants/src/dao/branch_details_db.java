@@ -29,7 +29,7 @@ public class branch_details_db {
 					+ ")";
 			statement = conn.prepareStatement(insertQuery);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Inserted");
+			//JOptionPane.showMessageDialog(null, "Inserted");
 		} 
 		catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());
@@ -58,7 +58,7 @@ public class branch_details_db {
 					+ " where ID = " + user.getID();
 			statement = conn.prepareStatement(updateQuery);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Updated");
+			//JOptionPane.showMessageDialog(null, "Updated");
 		}
 		catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());
@@ -69,7 +69,7 @@ public class branch_details_db {
 			String query= "delete from danh_sach_thong_tin where ID = " + id;
 			statement = conn.prepareStatement(query);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Deleted");
+			//JOptionPane.showMessageDialog(null, "Deleted");
 		}
 		catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());

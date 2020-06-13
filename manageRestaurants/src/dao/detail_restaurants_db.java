@@ -29,7 +29,7 @@ public class detail_restaurants_db {
 					+ ")";
 			statement = conn.prepareStatement(insertQuery);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Inserted");
+			//JOptionPane.showMessageDialog(null, "Inserted");
 		} catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());
 		} finally {
@@ -57,7 +57,7 @@ public class detail_restaurants_db {
 					+ " where ID = " + user.getID();
 			statement = conn.prepareStatement(updateQuery);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Updated");
+			//JOptionPane.showMessageDialog(null, "Updated");
 		}
 		catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());
@@ -65,10 +65,11 @@ public class detail_restaurants_db {
 	}
 	public void delete(int id){
 		try {
+			deleteLeavesI(id);
 			String query= "delete from main_info where ID = " + id;
 			statement = conn.prepareStatement(query);
 			statement.execute();
-			JOptionPane.showMessageDialog(null, "Deleted");
+			//JOptionPane.showMessageDialog(null, "Deleted");
 		}
 		catch (SQLException ex){
 			JOptionPane.showMessageDialog(null, ex.toString());
@@ -111,5 +112,42 @@ public class detail_restaurants_db {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	public void deleteByID(int id){
+		try {
+			deleteLeavesC(id);
+			String query= "delete from main_info where ma_nha_hang = " + id + " limit 10";
+			statement = conn.prepareStatement(query);
+			statement.execute();
+			//JOptionPane.showMessageDialog(null, "Deleted");
+		}
+		catch (SQLException ex){
+			JOptionPane.showMessageDialog(null, ex.toString());
+		}
+	}
+	private void deleteLeavesC(int id){
+		detail_restaurants_db dr = new detail_restaurants_db(); 
+		ResultSet rs = dr.getById(id);
+		branch_details_db bd = new branch_details_db();
+		employee_details_db ed = new employee_details_db();
+		place_order_db po = new place_order_db();
+		try {
+			while (rs.next()){
+				//JOptionPane.showMessageDialog(null, rs.getInt("ID"));
+				bd.delete(rs.getInt("ID"));
+				ed.deleteByID(rs.getInt("ID"));
+				po.deleteByID(rs.getInt("ID"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	private void deleteLeavesI(int id){
+		branch_details_db bd = new branch_details_db();
+		employee_details_db ed = new employee_details_db();
+		place_order_db po = new place_order_db();
+		bd.delete(id);
+		ed.deleteByID(id);
+		po.deleteByID(id);
 	}
 }

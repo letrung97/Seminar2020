@@ -1,9 +1,0 @@
-package dao;
-
-public class place_order_db {
-
-	public place_order_db() {
-		// TODO Auto-generated constructor stub
-	}
-
-}
