@@ -94,7 +94,7 @@ public class employee_details_db {
 	}
 	public void deleteByID(int id){
 		try {
-			String query= "delete from nhan_vien where ID = " + id + " limit 100";
+			String query= "delete from nhan_vien where ID = " + id + " limit 10";
 			statement = conn.prepareStatement(query);
 			statement.execute();
 			//JOptionPane.showMessageDialog(null, "Deleted");

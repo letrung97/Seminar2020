@@ -36,4 +36,16 @@
 			<item value="org.eclipse.debug.ui"/>
 		</list>
 	</section>
+	<section name="ImportExportAction">
+		<item value="org.eclipse.jdt.internal.ui.fatjarpackager.JarPackageWizard" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.equinox.p2.category"/>
+			<item value="org.eclipse.jdt.ui.Java"/>
+			<item value="org.eclipse.debug.ui"/>
+			<item value="org.eclipse.mylyn.tasks.ui.wizards.export.category"/>
+			<item value="org.eclipse.team.ui.exportWizards"/>
+			<item value="org.eclipse.wst.XMLCategory"/>
+		</list>
+	</section>
 </section>

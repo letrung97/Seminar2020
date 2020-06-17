@@ -45,6 +45,8 @@ public class list_restaurant_db {
 	}
 	public void update(danh_sach_nha_hang user){
 		try {
+			detail_restaurants_db dr = new detail_restaurants_db();
+			dr.updateLink(user.getTen_nha_hang(),user.getMa_nha_hang());
 			String updateQuery = "update danh_sach_nha_hang set "
 					+ "ten_nha_hang = '" + user.getTen_nha_hang() + "'" + ","
 					+ "so_chi_nhanh = " + user.getSo_chi_nhanh() + ","

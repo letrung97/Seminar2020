@@ -4,9 +4,9 @@ import javax.swing.JFrame;
 
 import view.*;
 
-public class main_program {
+public class main {
 
-	public static void main(String[] args) {
+	public static void main() {
 		JFrame frame = new intro();
 		frame.setVisible(true);
 	}

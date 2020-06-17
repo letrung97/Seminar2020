@@ -67,7 +67,7 @@ public class detail_restaurants_db {
 		try {
 			String updateQuery = "update main_info set "
 					+ "ten_nha_hang = '" + str + "'"
-					+ " where ma_nha_hang = " + id + " limit 100";
+					+ " where ma_nha_hang = " + id;
 			statement = conn.prepareStatement(updateQuery);
 			statement.execute();
 			//JOptionPane.showMessageDialog(null, "Updated");

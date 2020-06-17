@@ -63,19 +63,6 @@ public class detail_restaurants_db {
 			JOptionPane.showMessageDialog(null, ex.toString());
 		}
 	}
-	public void updateLink(String str, int id){
-		try {
-			String updateQuery = "update main_info set "
-					+ "ten_nha_hang = '" + str + "'"
-					+ " where ma_nha_hang = " + id + " limit 100";
-			statement = conn.prepareStatement(updateQuery);
-			statement.execute();
-			//JOptionPane.showMessageDialog(null, "Updated");
-		}
-		catch (SQLException ex){
-			JOptionPane.showMessageDialog(null, ex.toString());
-		}
-	}
 	public void delete(int id){
 		try {
 			deleteLeavesI(id);
