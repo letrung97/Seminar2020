@@ -10,4 +10,5 @@ public class main_program {
 		JFrame frame = new intro();
 		frame.setVisible(true);
 	}
+
 }
